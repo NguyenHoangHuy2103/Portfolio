@@ -1,0 +1,9 @@
+# Archive — local only, not pushed to GitHub
+archive/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
