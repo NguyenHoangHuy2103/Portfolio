@@ -1,6 +1,12 @@
 # Archive — local only, not pushed to GitHub
 archive/
 
+# Leftover files — delete manually
+index-v2.html
+index-new.html
+portfolio.md
+server.js
+
 # System files
 .DS_Store
 Thumbs.db

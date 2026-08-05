@@ -40,6 +40,6 @@ Website giới thiệu công ty, deploy production với custom domain.
 
 ## Liên hệ
 
-📧 jayker03212k5@gmail.com  
-💼 [LinkedIn](https://www.linkedin.com/in/huy-nguy%E1%BB%85n-ho%C3%A0ng-0569aa38a/)  
-🐙 [GitHub](https://github.com/huycoder2103)
+jayker03212k5@gmail.com  
+[LinkedIn](https://www.linkedin.com/in/huy-nguy%E1%BB%85n-ho%C3%A0ng-0569aa38a/)  
+[GitHub](https://github.com/huycoder2103)
