@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Nguyễn Hoàng Huy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#042C53;
+  --blue:#378ADD;
+  --text:#1C2B3A;
+  --muted:#5F6B7A;
+  --line:#DFE7F0;
+  --disp:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:#f0f4f8;
+  color:var(--text);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ---- TOP BAR ---- */
+.topbar{
+  background:#042C53;
+  padding:.75rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.topbar a{
+  color:#B5D4F4;
+  text-decoration:none;
+  font-family:var(--disp);
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  transition:color .2s;
+}
+.topbar a:hover{color:#fff}
+.topbar-actions{display:flex;gap:1rem;align-items:center}
+.btn-print{
+  font-family:var(--disp);font-weight:600;font-size:.78rem;letter-spacing:.04em;
+  background:#378ADD;color:#fff;border:none;border-radius:6px;
+  padding:.4em 1em;cursor:pointer;transition:background .2s;
+}
+.btn-print:hover{background:#2a6db5}
+
+/* ---- CV SHEET ---- */
+.sheet{
+  max-width:780px;
+  margin:2rem auto 4rem;
+  background:#fff;
+  padding:3rem 3.5rem;
+  border-radius:4px;
+  box-shadow:0 2px 20px rgba(4,44,83,.08);
+}
+
+/* ---- HEADER ---- */
+.cv-header{border-bottom:2px solid var(--navy);padding-bottom:1.25rem;margin-bottom:1.5rem}
+.cv-name{
+  font-family:var(--disp);font-weight:700;font-size:1.9rem;
+  color:var(--navy);letter-spacing:-.01em;line-height:1.1;
+}
+.cv-title{
+  font-family:var(--disp);font-weight:500;font-size:.95rem;
+  color:#378ADD;margin-top:.3rem;margin-bottom:.9rem;
+}
+.cv-contacts{
+  display:flex;flex-wrap:wrap;gap:.4rem .8rem;
+  font-size:.82rem;color:var(--muted);
+}
+.cv-contacts a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);transition:color .2s}
+.cv-contacts a:hover{color:var(--navy)}
+.cv-contacts span::before{content:'·';margin-right:.8rem;color:var(--line)}
+.cv-contacts span:first-child::before{display:none}
+
+/* ---- SECTIONS ---- */
+.cv-section{margin-bottom:1.6rem}
+.cv-section-title{
+  font-family:var(--disp);font-weight:700;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
+  border-bottom:1px solid var(--line);padding-bottom:.4rem;margin-bottom:1rem;
+}
+.cv-section-no{color:#378ADD;margin-right:.5rem}
+
+/* ---- ENTRY ---- */
+.cv-entry{margin-bottom:1.1rem}
+.cv-entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.cv-entry-role{font-family:var(--disp);font-weight:600;font-size:.93rem;color:var(--navy)}
+.cv-entry-period{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.cv-entry-sub{font-size:.82rem;color:#378ADD;font-weight:500;margin-bottom:.45rem}
+.cv-entry-note{font-size:.79rem;color:var(--muted);font-style:italic;margin-bottom:.35rem}
+.cv-entry ul{padding-left:1.1rem}
+.cv-entry li{font-size:.85rem;color:#2a3a4a;margin-bottom:.28rem;line-height:1.55}
+.cv-entry li::marker{color:var(--navy)}
+
+/* ---- SKILLS TABLE ---- */
+.skill-row{display:grid;grid-template-columns:160px 1fr;gap:.3rem .8rem;margin-bottom:.35rem;font-size:.85rem}
+.skill-label{font-weight:600;color:var(--navy)}
+.skill-value{color:#2a3a4a}
+
+/* ---- LANG TABLE ---- */
+.lang-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.lang-table td{padding:.3rem .5rem}
+.lang-table td:first-child{font-weight:600;color:var(--navy);width:120px}
+.lang-table td:last-child{color:var(--muted);font-size:.78rem}
+
+/* ---- ACCOMPLISHMENTS ---- */
+.acc-list{list-style:none;padding:0}
+.acc-list li{
+  font-size:.85rem;color:#2a3a4a;margin-bottom:.5rem;
+  padding-left:1rem;position:relative;
+}
+.acc-list li::before{content:'→';position:absolute;left:0;color:#378ADD;font-weight:600}
+.acc-list b{color:var(--navy)}
+
+/* ---- FOOTER ---- */
+.cv-footer{
+  margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);
+  font-size:.75rem;color:var(--muted);text-align:center;
+}
+
+/* ---- PRINT ---- */
+@media print{
+  body{background:#fff}
+  .topbar,.btn-print{display:none}
+  .sheet{margin:0;padding:1.5cm 2cm;box-shadow:none;border-radius:0;max-width:100%}
+  .cv-entry li{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Back to Portfolio</a>
+  <div class="topbar-actions">
+    <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <div class="cv-name">Nguyễn Hoàng Huy</div>
+    <div class="cv-title">Backend / Full-stack Developer &nbsp;·&nbsp; Software Engineering Student · FPT University</div>
+    <div class="cv-contacts">
+      <span>Ho Chi Minh City, Vietnam</span>
+      <span><a href="tel:+84366424978">+84 366 424 978</a></span>
+      <span><a href="mailto:jayker03212k5@gmail.com">jayker03212k5@gmail.com</a></span>
+      <span><a href="https://github.com/huycoder2103" target="_blank" rel="noopener">GitHub</a></span>
+      <span><a href="https://www.linkedin.com/in/huy-nguyễn-hoàng-0569aa38a/" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="https://nguyenhoanghuy.io.vn" target="_blank" rel="noopener">Portfolio</a></span>
+    </div>
+  </header>
+
+  <!-- EDUCATION -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">1.</span>Education</div>
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">FPT University &mdash; Ho Chi Minh City</span>
+        <span class="cv-entry-period">Sep 2023 &ndash; Present</span>
+      </div>
+      <div class="cv-entry-sub">Bachelor of Software Engineering</div>
+      <ul>
+        <li>Core coursework: Software Development, Database Management, System Architecture.</li>
+        <li>Studying Japanese as a 3rd language within the program.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE & PROJECTS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">2.</span>Work Experience &amp; Projects</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">System Developer &amp; Ops &middot; Internship (Remote)</span>
+        <span class="cv-entry-period">Feb 2026 &ndash; Present</span>
+      </div>
+      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics &mdash; Delivery Management System</div>
+      <ul>
+        <li>Built and deployed a full internal delivery management system <em>solo end-to-end</em> — from system design to production, serving daily operations of a real logistics company.</li>
+        <li>Backend with <strong>Razor Web (C#)</strong>, <strong>JavaScript</strong>, <strong>Docker</strong>, <strong>MySQL</strong>; role-based access for Admin, Staff, and Accountant.</li>
+        <li>Managed server provisioning, domain configuration, and ongoing production ops.</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Frontend Developer &middot; Internship (Remote)</span>
+        <span class="cv-entry-period">Feb 2026 &ndash; Present</span>
+      </div>
+      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics &mdash; Company Landing Page</div>
+      <ul>
+        <li>Built multi-page company website using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>; deployed to production at <a href="https://vantaixuantin.com" target="_blank" rel="noopener">vantaixuantin.com</a>.</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Backend Developer &middot; Team Project</span>
+        <span class="cv-entry-period">Jul 2026</span>
+      </div>
+      <div class="cv-entry-sub">AutoWash Pro &mdash; Automated Car Wash Booking System &middot; SWP &middot; FPT University</div>
+      <ul>
+        <li>Contributed as backend developer on a team project building an automated car wash appointment scheduling system.</li>
+        <li>Designed and implemented RESTful APIs using <strong>ASP.NET Core Web API</strong> for booking management, service catalog, and scheduling logic.</li>
+        <li>Source: <a href="https://github.com/ThuanNg05/AutoWashPro" target="_blank" rel="noopener">github.com/ThuanNg05/AutoWashPro</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">3.</span>Job-related Skills</div>
+    <div class="skill-row"><span class="skill-label">Programming</span><span class="skill-value">Java, JavaScript, C#</span></div>
+    <div class="skill-row"><span class="skill-label">Frameworks</span><span class="skill-value">ASP.NET Core Web API, Razor Web, EF Core, React, Node.js</span></div>
+    <div class="skill-row"><span class="skill-label">Databases</span><span class="skill-value">MySQL, PostgreSQL, MongoDB</span></div>
+    <div class="skill-row"><span class="skill-label">Tools &amp; Workflow</span><span class="skill-value">Git, Docker, CI/CD, REST API, Agile/Scrum</span></div>
+    <div class="skill-row" style="margin-top:.6rem">
+      <span class="skill-label">Languages</span>
+      <span class="skill-value">
+        Vietnamese (Native) &nbsp;&middot;&nbsp; English (Conversational) &nbsp;&middot;&nbsp; Japanese (Basic — 3rd language at FPT)
+      </span>
+    </div>
+  </section>
+
+  <!-- ACCOMPLISHMENTS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">4.</span>Accomplishments</div>
+    <ul class="acc-list">
+      <li><b>Year-3 Internship:</b> Secured a real-company internship as a 3rd-year student — one of the earlier in the cohort to contribute directly to a live production environment.</li>
+      <li><b>Multilingual:</b> Vietnamese (Native) · English (Conversational) · Japanese (Basic, FPT program).</li>
+    </ul>
+  </section>
+
+  <div class="cv-footer">© 2026 Nguyễn Hoàng Huy · <a href="index.html" style="color:inherit">nguyenhoanghuy.io.vn</a></div>
+
+</div>
+
+</body>
+</html>
