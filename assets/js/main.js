@@ -171,7 +171,7 @@ var i18n = {
     'nav.contact':      'Contact',
     'hero.eyebrow':     'Portfolio — Ho Chi Minh City — 2026',
     'hero.status':      'Open to work — Interning @ Xuan Tin Logistics',
-    'hero.role':        'Never waiting to be good enough to start. Always knowing there\'s more to learn — so never stopping.<br>The only thing worth fearing is standing still.',
+    'hero.role':        'Never waiting to be good enough to start, knowing there\'s still much to learn.<br>So never stopping, keep building to become good enough.<br>The only thing worth fearing is standing still.',
     'fact.edu':         'Software Engineering, 2023–2027',
     'fact.intern.title':'Internship 02/2026 — Present · Remote',
     'fact.intern.sub':  'at Xuan Tin Logistics · Ops & Development',
