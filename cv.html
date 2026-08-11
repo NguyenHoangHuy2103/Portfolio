@@ -102,6 +102,8 @@ body{
 .cv-entry ul{padding-left:1.1rem}
 .cv-entry li{font-size:.85rem;color:#2a3a4a;margin-bottom:.28rem;line-height:1.55}
 .cv-entry li::marker{color:var(--navy)}
+.cv-subgroup{font-family:var(--disp);font-weight:700;font-size:.82rem;color:var(--navy);margin:.6rem 0 .35rem}
+.cv-summary{font-size:.85rem;color:var(--text);margin-bottom:1.6rem;line-height:1.6}
 
 /* ---- SKILLS TABLE ---- */
 .skill-row{display:grid;grid-template-columns:160px 1fr;gap:.3rem .8rem;margin-bottom:.35rem;font-size:.85rem}
@@ -152,7 +154,7 @@ body{
   <!-- HEADER -->
   <header class="cv-header">
     <div class="cv-name">Nguyễn Hoàng Huy</div>
-    <div class="cv-title">Backend / Full-stack Developer &nbsp;·&nbsp; Software Engineering Student · FPT University</div>
+    <div class="cv-title">Backend / Frontend Developer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Software Engineering Student · FPT University</div>
     <div class="cv-contacts">
       <span>Ho Chi Minh City, Vietnam</span>
       <span><a href="tel:+84366424978">+84 366 424 978</a></span>
@@ -162,6 +164,8 @@ body{
       <span><a href="https://nguyenhoanghuy.io.vn" target="_blank" rel="noopener">Portfolio</a></span>
     </div>
   </header>
+
+  <p class="cv-summary">3rd-year Software Engineering student, oriented toward Fullstack Development and DevOps. Hands-on experience building and operating a system for a small business in a real operating environment — covering design, backend/frontend development, and server administration.</p>
 
   <!-- EDUCATION -->
   <section class="cv-section">
@@ -185,38 +189,41 @@ body{
 
     <div class="cv-entry">
       <div class="cv-entry-head">
-        <span class="cv-entry-role">System Developer &amp; Ops &middot; Internship (Remote)</span>
-        <span class="cv-entry-period">Feb 2026 &ndash; Present</span>
+        <span class="cv-entry-role">Software Engineer Intern (Remote) &middot; Backend, Frontend &amp; DevOps</span>
+        <span class="cv-entry-period">May 2026 &ndash; Present</span>
       </div>
-      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics &mdash; Delivery Management System</div>
+      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics</div>
       <ul>
-        <li>Built and deployed a full internal delivery management system <em>solo end-to-end</em> — from system design to production, serving daily operations of a real logistics company.</li>
-        <li>Backend with <strong>Razor Web (C#)</strong>, <strong>JavaScript</strong>, <strong>Docker</strong>, <strong>MySQL</strong>; role-based access for Admin, Staff, and Accountant.</li>
-        <li>Managed server provisioning, domain configuration, and ongoing production ops.</li>
-      </ul>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-head">
-        <span class="cv-entry-role">Frontend Developer &middot; Internship (Remote)</span>
-        <span class="cv-entry-period">Feb 2026 &ndash; Present</span>
-      </div>
-      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics &mdash; Company Landing Page</div>
-      <ul>
-        <li>Built multi-page company website using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>; deployed to production at <a href="https://vantaixuantin.com" target="_blank" rel="noopener">vantaixuantin.com</a>.</li>
+        <li>Designed, built, and deployed an internal delivery management system (<strong>Razor Web/C#</strong>, <strong>JavaScript</strong>, <strong>Docker</strong>, <strong>MySQL</strong>) supporting daily operations.</li>
+        <li>Built a multi-page company website (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>), deployed at <a href="https://vantaixuantin.com" target="_blank" rel="noopener">vantaixuantin.com</a>.</li>
+        <li>Managed server provisioning, domain configuration, and production operations.</li>
       </ul>
     </div>
 
     <div class="cv-entry">
       <div class="cv-entry-head">
         <span class="cv-entry-role">Backend Developer &middot; Team Project</span>
-        <span class="cv-entry-period">Jul 2026</span>
+        <span class="cv-entry-period">May 2026</span>
       </div>
       <div class="cv-entry-sub">AutoWash Pro &mdash; Automated Car Wash Booking System &middot; SWP &middot; FPT University</div>
       <ul>
         <li>Contributed as backend developer on a team project building an automated car wash appointment scheduling system.</li>
         <li>Designed and implemented RESTful APIs using <strong>ASP.NET Core Web API</strong> for booking management, service catalog, and scheduling logic.</li>
         <li>Source: <a href="https://github.com/ThuanNg05/AutoWashPro" target="_blank" rel="noopener">github.com/ThuanNg05/AutoWashPro</a></li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Project Lead (PL) &middot; Academic Research</span>
+        <span class="cv-entry-period">Summer 2026</span>
+      </div>
+      <div class="cv-entry-sub">LLM-based REST API Test Generation vs Manual &amp; EvoMaster on Pre-seeded-Fault Benchmarks &middot; SWT301 &ndash; Research-Based Learning &middot; FPT University</div>
+      <ul>
+        <li>Led a 5-member research team as Project Lead (PL) &mdash; coordinated research direction, task allocation, and the final report/paper.</li>
+        <li>Researched and compared three REST API test-generation approaches &mdash; <strong>LLM (Claude Sonnet)</strong>, <strong>Manual (EP/BVA)</strong>, and <strong>EvoMaster</strong> &mdash; across 3 REST APIs (35 operations), using pre-seeded mutation faults as ground truth.</li>
+        <li>Key finding: EvoMaster achieved the highest fault-detection recall (0.135), ahead of LLM (0.060) and Manual (0.015); LLM significantly outperformed the manual baseline (McNemar p&asymp;0.031).</li>
+        <li>Source &amp; paper: <a href="https://github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2" target="_blank" rel="noopener">github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2</a></li>
       </ul>
     </div>
 
@@ -228,7 +235,8 @@ body{
     <div class="skill-row"><span class="skill-label">Programming</span><span class="skill-value">Java, JavaScript, C#</span></div>
     <div class="skill-row"><span class="skill-label">Frameworks</span><span class="skill-value">ASP.NET Core Web API, Razor Web, EF Core, React, Node.js</span></div>
     <div class="skill-row"><span class="skill-label">Databases</span><span class="skill-value">MySQL, PostgreSQL, MongoDB</span></div>
-    <div class="skill-row"><span class="skill-label">Tools &amp; Workflow</span><span class="skill-value">Git, Docker, CI/CD, REST API, Agile/Scrum</span></div>
+    <div class="skill-row"><span class="skill-label">Tools &amp; Workflow</span><span class="skill-value">Visual Studio, Visual Studio Code, Git, GitHub, Docker, CI/CD, REST API, Swagger, Agile/Scrum</span></div>
+    <div class="skill-row"><span class="skill-label">Soft Skills</span><span class="skill-value">Team leadership, teamwork, problem-solving, time management, and professional communication</span></div>
     <div class="skill-row" style="margin-top:.6rem">
       <span class="skill-label">Languages</span>
       <span class="skill-value">
@@ -241,8 +249,7 @@ body{
   <section class="cv-section">
     <div class="cv-section-title"><span class="cv-section-no">4.</span>Accomplishments</div>
     <ul class="acc-list">
-      <li><b>Year-3 Internship:</b> Secured a real-company internship as a 3rd-year student — one of the earlier in the cohort to contribute directly to a live production environment.</li>
-      <li><b>Multilingual:</b> Vietnamese (Native) · English (Conversational) · Japanese (Basic, FPT program).</li>
+      <li><b>Year-3 Internship:</b> Began interning at a real company in year 3, directly involved in operating a production system.</li>
     </ul>
   </section>
 
