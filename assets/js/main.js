@@ -118,19 +118,19 @@ var i18n = {
     'nav.contact':      'Liên hệ',
     'hero.eyebrow':     'Portfolio — TP. Hồ Chí Minh — 2026',
     'hero.status':      'Open to work — Đang thực tập @ Xuân Tín Logistics',
-    'hero.role':        'Không chờ đủ giỏi mới làm, biết mình còn thiếu nhiều — nên không được ngưng làm, làm để trở nên đủ giỏi.<br>Thứ duy nhất đáng sợ là đứng yên.',
+    'hero.role':        'Không chờ đủ giỏi mới làm, biết mình còn thiếu nhiều.<br>Nên không được ngưng làm, làm để trở nên đủ giỏi.<br>Thứ duy nhất đáng sợ là đứng yên.',
     'fact.edu':         'Software Engineering, 2023–2027',
-    'fact.intern.title':'Thực tập 02/2026 — nay · Remote',
+    'fact.intern.title':'Thực tập 05/2026 — nay · Remote',
     'fact.intern.sub':  'tại Vận Tải Xuân Tín · Vận hành & Phát triển hệ thống',
     'fact.proj.title':  '3 dự án nổi bật',
     'fact.proj.sub':    '1 hệ thống production thật',
     'cta.projects':     'Xem dự án',
     'cta.contact':      'Liên hệ',
     'avatar.hint':      'Thêm ảnh của bạn vào đây',
-    'about.lede':       'Mình là <em>Huy</em> — sinh viên Software Engineering tại FPT University HCMC, hiện đang vận hành &amp; phát triển hệ thống thật tại Xuân Tín Logistics.',
+    'about.lede':       'Mình là <em>Huy</em> — Sinh viên năm 3 ngành Kỹ thuật Phần mềm, định hướng phát triển theo hướng Fullstack Developer và DevOps. Có kinh nghiệm thực tế xây dựng và vận hành hệ thống cho một doanh nghiệp nhỏ trong môi trường vận hành thực tế - phụ trách từ thiết kế, phát triển backend/frontend đến quản trị server.',
     'card.edu.title':   'Học vấn <span>2023 — 2027</span>',
     'card.edu.body':    '<b>FPT University HCMC</b> — chuyên ngành Software Engineering. Học tiếng Nhật như ngôn ngữ thứ 3 trong chương trình.',
-    'card.intern.title':'Thực tập · Remote <span>07/2026 — nay</span>',
+    'card.intern.title':'Thực tập · Remote <span>05/2026 — nay</span>',
     'card.intern.body': '<b>Công ty TNHH MTV Vận Tải Xuân Tín Logistics</b> — Vận hành &amp; Phát triển hệ thống: xây hệ thống giao hàng production, landing page công ty, vận hành hạ tầng IT nội bộ.',
     'card.lang.title':  'Ngôn ngữ',
     'lang.vi':          'Tiếng Việt',  'lang.vi.level': 'Bản ngữ',
@@ -149,6 +149,9 @@ var i18n = {
     'proj2.extra':      '<b>Vai trò:</b> Project Lead — dẫn dắt nhóm 5 thành viên thiết kế và thực thi nghiên cứu.',
     'proj3.desc':       'Website giới thiệu công ty — đa trang, deploy production với custom domain.',
     'skill.lang':       'Ngôn ngữ lập trình', 'skill.fw': 'Framework & Runtime', 'skill.db': 'Cơ sở dữ liệu', 'skill.tools': 'Công cụ & Quy trình',
+    'skill.soft':       'Kỹ năng mềm',
+    'skill.soft.0':     'Lãnh đạo nhóm',
+    'skill.soft.1':     'Làm việc nhóm', 'skill.soft.2': 'Giải quyết vấn đề', 'skill.soft.3': 'Quản lý thời gian', 'skill.soft.4': 'Giao tiếp chuyên nghiệp',
     'acc1.title':       'Production solo end-to-end',
     'acc1.desc':        'Tự tay xây và vận hành hoàn toàn hệ thống giao hàng production đang phục vụ doanh nghiệp thực tế — từ code đến server, domain, và ops.',
     'acc2.title':       'Research Lead — SWT301',
@@ -173,7 +176,7 @@ var i18n = {
     'hero.status':      'Open to work — Interning @ Xuan Tin Logistics',
     'hero.role':        'Never waiting to be good enough to start, knowing there\'s still much to learn.<br>So never stopping, keep building to become good enough.<br>The only thing worth fearing is standing still.',
     'fact.edu':         'Software Engineering, 2023–2027',
-    'fact.intern.title':'Internship 02/2026 — Present · Remote',
+    'fact.intern.title':'Internship May 2026 — Present · Remote',
     'fact.intern.sub':  'at Xuan Tin Logistics · Ops & Development',
     'fact.proj.title':  '3 featured projects',
     'fact.proj.sub':    '1 real production system',
@@ -183,7 +186,7 @@ var i18n = {
     'about.lede':       'I\'m <em>Huy</em> — a Software Engineering student at FPT University HCMC, currently operating &amp; developing real systems at Xuan Tin Logistics.',
     'card.edu.title':   'Education <span>2023 — 2027</span>',
     'card.edu.body':    '<b>FPT University HCMC</b> — majoring in Software Engineering. Studying Japanese as a 3rd language in the program.',
-    'card.intern.title':'Internship · Remote <span>07/2026 — Present</span>',
+    'card.intern.title':'Internship · Remote <span>May 2026 — Present</span>',
     'card.intern.body': '<b>Xuan Tin Logistics Co., Ltd</b> — System Ops &amp; Development: built the production delivery system, company landing page, and managed internal IT infrastructure.',
     'card.lang.title':  'Languages',
     'lang.vi':          'Vietnamese',  'lang.vi.level': 'Native',
@@ -202,6 +205,9 @@ var i18n = {
     'proj2.extra':      '<b>Role:</b> Project Lead — led 5 members through the full research design and execution.',
     'proj3.desc':       'Company landing website — multi-page, deployed to production with a custom domain.',
     'skill.lang':       'Programming Languages', 'skill.fw': 'Frameworks & Runtime', 'skill.db': 'Databases', 'skill.tools': 'Tools & Workflow',
+    'skill.soft':       'Soft Skills',
+    'skill.soft.0':     'Team leadership',
+    'skill.soft.1':     'Teamwork', 'skill.soft.2': 'Problem-solving', 'skill.soft.3': 'Time management', 'skill.soft.4': 'Professional communication',
     'acc1.title':       'Production Solo End-to-End',
     'acc1.desc':        'Solely built and operated a production delivery system serving a real business — from code to server, domain, and ops.',
     'acc2.title':       'Research Lead — SWT301',
@@ -243,7 +249,7 @@ window.addEventListener('load', function () {
   var el = document.getElementById('tw');
   if (!el) return;
 
-  var words = ['Backend Developer', 'Full-stack Developer', 'Research Lead', 'System Builder'];
+  var words = ['Backend Developer', 'Frontend Developer', 'DevOps'];
   var wi = 0, ci = 0, deleting = false;
 
   el.textContent = words[0].substring(0, 1);
