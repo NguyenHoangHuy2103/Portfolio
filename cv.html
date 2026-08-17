@@ -6,137 +6,136 @@
 <title>CV — Nguyễn Hoàng Huy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#042C53;
-  --blue:#378ADD;
-  --text:#1C2B3A;
-  --muted:#5F6B7A;
-  --line:#DFE7F0;
-  --disp:'Space Grotesk',sans-serif;
+  --navy:#1a2b47;
+  --blue:#2b6cb0;
+  --text:#1a1a1a;
+  --muted:#555;
+  --line:#c0c8d4;
   --body:'Inter',sans-serif;
 }
-html{scroll-behavior:smooth}
 body{
   font-family:var(--body);
-  background:#f0f4f8;
+  background:#e8ecf0;
   color:var(--text);
-  font-size:14px;
-  line-height:1.6;
+  font-size:13.5px;
+  line-height:1.55;
 }
 
 /* ---- TOP BAR ---- */
 .topbar{
-  background:#042C53;
-  padding:.75rem 2rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
+  background:#1a2b47;padding:.7rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
 }
-.topbar a{
-  color:#B5D4F4;
-  text-decoration:none;
-  font-family:var(--disp);
-  font-size:.82rem;
-  font-weight:600;
-  letter-spacing:.04em;
-  transition:color .2s;
-}
+.topbar a{color:#a8c4e0;text-decoration:none;font-size:.82rem;font-weight:600;transition:color .2s}
 .topbar a:hover{color:#fff}
-.topbar-actions{display:flex;gap:1rem;align-items:center}
 .btn-print{
-  font-family:var(--disp);font-weight:600;font-size:.78rem;letter-spacing:.04em;
-  background:#378ADD;color:#fff;border:none;border-radius:6px;
-  padding:.4em 1em;cursor:pointer;transition:background .2s;
+  font-size:.78rem;font-weight:600;background:#2b6cb0;color:#fff;
+  border:none;border-radius:5px;padding:.38em 1em;cursor:pointer;transition:background .2s;
 }
-.btn-print:hover{background:#2a6db5}
+.btn-print:hover{background:#1e4e8c}
 
-/* ---- CV SHEET ---- */
+/* ---- SHEET ---- */
 .sheet{
-  max-width:780px;
-  margin:2rem auto 4rem;
-  background:#fff;
-  padding:3rem 3.5rem;
-  border-radius:4px;
-  box-shadow:0 2px 20px rgba(4,44,83,.08);
+  max-width:800px;margin:2rem auto 4rem;
+  background:#fff;padding:2.8rem 3.2rem;
+  border-radius:3px;box-shadow:0 2px 18px rgba(0,0,0,.1);
 }
 
-/* ---- HEADER ---- */
-.cv-header{border-bottom:2px solid var(--navy);padding-bottom:1.25rem;margin-bottom:1.5rem}
+/* ---- HEADER (centered) ---- */
+.cv-header{text-align:center;margin-bottom:1.2rem}
 .cv-name{
-  font-family:var(--disp);font-weight:700;font-size:1.9rem;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:1.95rem;
   color:var(--navy);letter-spacing:-.01em;line-height:1.1;
+  margin-bottom:.35rem;
 }
 .cv-title{
-  font-family:var(--disp);font-weight:500;font-size:.95rem;
-  color:#378ADD;margin-top:.3rem;margin-bottom:.9rem;
+  font-size:.88rem;font-weight:500;color:var(--blue);
+  margin-bottom:.7rem;
 }
 .cv-contacts{
-  display:flex;flex-wrap:wrap;gap:.4rem .8rem;
-  font-size:.82rem;color:var(--muted);
+  font-size:.8rem;color:var(--muted);
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem .1rem;
 }
-.cv-contacts a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);transition:color .2s}
-.cv-contacts a:hover{color:var(--navy)}
-.cv-contacts span::before{content:'·';margin-right:.8rem;color:var(--line)}
-.cv-contacts span:first-child::before{display:none}
+.cv-contacts span{display:flex;align-items:center;gap:.45rem}
+.cv-contacts span+span::before{content:'·';color:var(--line)}
+.cv-contacts a{color:var(--blue);text-decoration:none}
+.cv-contacts a:hover{text-decoration:underline}
 
-/* ---- SECTIONS ---- */
-.cv-section{margin-bottom:1.6rem}
-.cv-section-title{
-  font-family:var(--disp);font-weight:700;font-size:.72rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
-  border-bottom:1px solid var(--line);padding-bottom:.4rem;margin-bottom:1rem;
+/* ---- SUMMARY ---- */
+.cv-summary{
+  font-size:.84rem;color:#333;line-height:1.6;
+  border-top:1.5px solid var(--navy);
+  padding-top:.9rem;margin-bottom:1.2rem;
 }
-.cv-section-no{color:#378ADD;margin-right:.5rem}
+
+/* ---- SECTION ---- */
+.cv-section{margin-bottom:1.3rem}
+.cv-section-title{
+  font-weight:700;font-size:.76rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy);
+  border-bottom:1.5px solid var(--navy);
+  padding-bottom:.3rem;margin-bottom:.85rem;
+}
+.cv-section-no{margin-right:.3rem}
 
 /* ---- ENTRY ---- */
-.cv-entry{margin-bottom:1.1rem}
-.cv-entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
-.cv-entry-role{font-family:var(--disp);font-weight:600;font-size:.93rem;color:var(--navy)}
+.cv-entry{margin-bottom:.95rem}
+.cv-entry-head{
+  display:flex;justify-content:space-between;
+  align-items:baseline;gap:1rem;flex-wrap:wrap;
+}
+.cv-entry-role{font-weight:700;font-size:.88rem;color:var(--navy)}
 .cv-entry-period{font-size:.78rem;color:var(--muted);white-space:nowrap}
-.cv-entry-sub{font-size:.82rem;color:#378ADD;font-weight:500;margin-bottom:.45rem}
-.cv-entry-note{font-size:.79rem;color:var(--muted);font-style:italic;margin-bottom:.35rem}
-.cv-entry ul{padding-left:1.1rem}
-.cv-entry li{font-size:.85rem;color:#2a3a4a;margin-bottom:.28rem;line-height:1.55}
-.cv-entry li::marker{color:var(--navy)}
-.cv-subgroup{font-family:var(--disp);font-weight:700;font-size:.82rem;color:var(--navy);margin:.6rem 0 .35rem}
-.cv-summary{font-size:.85rem;color:var(--text);margin-bottom:1.6rem;line-height:1.6}
+.cv-entry-sub{font-size:.82rem;color:var(--blue);font-weight:600;margin-bottom:.4rem}
+.sub-label{font-weight:700;font-size:.83rem;color:var(--text);margin:.5rem 0 .2rem}
+.cv-entry ul{padding-left:1.25rem;margin-bottom:.2rem}
+.cv-entry li{
+  font-size:.83rem;color:#2a2a2a;
+  margin-bottom:.22rem;line-height:1.5;
+  list-style-type:disc;
+}
+.cv-entry a{color:var(--blue);text-decoration:none}
+.cv-entry a:hover{text-decoration:underline}
 
 /* ---- SKILLS TABLE ---- */
-.skill-row{display:grid;grid-template-columns:160px 1fr;gap:.3rem .8rem;margin-bottom:.35rem;font-size:.85rem}
-.skill-label{font-weight:600;color:var(--navy)}
-.skill-value{color:#2a3a4a}
-
-/* ---- LANG TABLE ---- */
-.lang-table{width:100%;border-collapse:collapse;font-size:.85rem}
-.lang-table td{padding:.3rem .5rem}
-.lang-table td:first-child{font-weight:600;color:var(--navy);width:120px}
-.lang-table td:last-child{color:var(--muted);font-size:.78rem}
+.skill-table{width:100%;border-collapse:collapse}
+.skill-table tr td{
+  font-size:.83rem;padding:.18rem .4rem .18rem 0;
+  vertical-align:top;
+}
+.skill-table td:first-child{
+  font-weight:700;color:var(--navy);
+  width:148px;white-space:nowrap;
+}
+.skill-table td:last-child{color:#2a2a2a}
 
 /* ---- ACCOMPLISHMENTS ---- */
-.acc-list{list-style:none;padding:0}
-.acc-list li{
-  font-size:.85rem;color:#2a3a4a;margin-bottom:.5rem;
-  padding-left:1rem;position:relative;
-}
-.acc-list li::before{content:'→';position:absolute;left:0;color:#378ADD;font-weight:600}
+.acc-list{list-style:disc;padding-left:1.25rem}
+.acc-list li{font-size:.83rem;color:#2a2a2a;margin-bottom:.35rem;line-height:1.5}
 .acc-list b{color:var(--navy)}
+.acc-list a{color:var(--blue);text-decoration:none}
+.acc-list a:hover{text-decoration:underline}
 
 /* ---- FOOTER ---- */
 .cv-footer{
-  margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);
-  font-size:.75rem;color:var(--muted);text-align:center;
+  margin-top:1.8rem;padding-top:.9rem;
+  border-top:1px solid var(--line);
+  font-size:.72rem;color:var(--muted);text-align:center;
 }
 
 /* ---- PRINT ---- */
 @media print{
   body{background:#fff}
   .topbar,.btn-print{display:none}
-  .sheet{margin:0;padding:1.5cm 2cm;box-shadow:none;border-radius:0;max-width:100%}
+  .sheet{margin:0;padding:1.4cm 1.8cm;box-shadow:none;border-radius:0;max-width:100%}
   .cv-entry li{page-break-inside:avoid}
+  a{color:inherit!important}
 }
 </style>
 </head>
@@ -144,9 +143,7 @@ body{
 
 <div class="topbar">
   <a href="index.html">← Back to Portfolio</a>
-  <div class="topbar-actions">
-    <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
-  </div>
+  <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
 </div>
 
 <div class="sheet">
@@ -154,7 +151,7 @@ body{
   <!-- HEADER -->
   <header class="cv-header">
     <div class="cv-name">Nguyễn Hoàng Huy</div>
-    <div class="cv-title">Backend / Frontend Developer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Software Engineering Student · FPT University</div>
+    <div class="cv-title">Backend / Frontend Developer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Software Engineering Student &nbsp;·&nbsp; FPT University</div>
     <div class="cv-contacts">
       <span>Ho Chi Minh City, Vietnam</span>
       <span><a href="tel:+84366424978">+84 366 424 978</a></span>
@@ -165,14 +162,15 @@ body{
     </div>
   </header>
 
+  <!-- SUMMARY -->
   <p class="cv-summary">3rd-year Software Engineering student, oriented toward Fullstack Development and DevOps. Hands-on experience building and operating a system for a small business in a real operating environment — covering design, backend/frontend development, and server administration.</p>
 
-  <!-- EDUCATION -->
+  <!-- 1. EDUCATION -->
   <section class="cv-section">
     <div class="cv-section-title"><span class="cv-section-no">1.</span>Education</div>
     <div class="cv-entry">
       <div class="cv-entry-head">
-        <span class="cv-entry-role">FPT University &mdash; Ho Chi Minh City</span>
+        <span class="cv-entry-role">FPT University &ndash; Ho Chi Minh City</span>
         <span class="cv-entry-period">Sep 2023 &ndash; Present</span>
       </div>
       <div class="cv-entry-sub">Bachelor of Software Engineering</div>
@@ -183,29 +181,36 @@ body{
     </div>
   </section>
 
-  <!-- WORK EXPERIENCE & PROJECTS -->
+  <!-- 2. WORK EXPERIENCE & PROJECTS -->
   <section class="cv-section">
     <div class="cv-section-title"><span class="cv-section-no">2.</span>Work Experience &amp; Projects</div>
 
     <div class="cv-entry">
       <div class="cv-entry-head">
-        <span class="cv-entry-role">Software Engineer Intern (Remote) &middot; Backend, Frontend &amp; DevOps</span>
-        <span class="cv-entry-period">May 2026 &ndash; Present</span>
+        <span class="cv-entry-role">Software Engineer Intern (Remote) &ndash; Backend, Frontend &amp; DevOps</span>
+        <span class="cv-entry-period">Apr 2026 &ndash; Present</span>
       </div>
       <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics</div>
+
+      <p class="sub-label">Internal Delivery Management System:</p>
       <ul>
-        <li>Designed, built, and deployed an internal delivery management system (<strong>Razor Web/C#</strong>, <strong>JavaScript</strong>, <strong>Docker</strong>, <strong>MySQL</strong>) supporting daily operations.</li>
+        <li>Designed the system architecture and database schema from scratch for order intake, shipment tracking, delivery, and invoicing workflows.</li>
+        <li>Built the backend with <strong>Razor Web (C#)</strong> and RESTful endpoints. Used <strong>MySQL</strong> for data storage and <strong>Docker</strong> to containerize the application, ensuring consistent deployment across environments.</li>
+        <li>Provisioned the production server, configured the domain, and have owned deployment and ongoing maintenance since launch.</li>
+      </ul>
+
+      <p class="sub-label">Company Website (Landing Page):</p>
+      <ul>
         <li>Built a multi-page company website (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>), deployed at <a href="https://vantaixuantin.com" target="_blank" rel="noopener">vantaixuantin.com</a>.</li>
-        <li>Managed server provisioning, domain configuration, and production operations.</li>
       </ul>
     </div>
 
     <div class="cv-entry">
       <div class="cv-entry-head">
-        <span class="cv-entry-role">Backend Developer &middot; Team Project</span>
-        <span class="cv-entry-period">May 2026</span>
+        <span class="cv-entry-role">Backend Developer &middot; Coursework Team Project</span>
+        <span class="cv-entry-period">05/2026</span>
       </div>
-      <div class="cv-entry-sub">AutoWash Pro &mdash; Automated Car Wash Booking System &middot; SWP &middot; FPT University</div>
+      <div class="cv-entry-sub">AutoWash Pro &ndash; Automated Car Wash Booking System &middot; SWP391 &middot; FPT University</div>
       <ul>
         <li>Contributed as backend developer on a team project building an automated car wash appointment scheduling system.</li>
         <li>Designed and implemented RESTful APIs using <strong>ASP.NET Core Web API</strong> for booking management, service catalog, and scheduling logic.</li>
@@ -213,49 +218,33 @@ body{
       </ul>
     </div>
 
-    <div class="cv-entry">
-      <div class="cv-entry-head">
-        <span class="cv-entry-role">Project Lead (PL) &middot; Academic Research</span>
-        <span class="cv-entry-period">Summer 2026</span>
-      </div>
-      <div class="cv-entry-sub">LLM-based REST API Test Generation vs Manual &amp; EvoMaster on Pre-seeded-Fault Benchmarks &middot; SWT301 &ndash; Research-Based Learning &middot; FPT University</div>
-      <ul>
-        <li>Led a 5-member research team as Project Lead (PL) &mdash; coordinated research direction, task allocation, and the final report/paper.</li>
-        <li>Researched and compared three REST API test-generation approaches &mdash; <strong>LLM (Claude Sonnet)</strong>, <strong>Manual (EP/BVA)</strong>, and <strong>EvoMaster</strong> &mdash; across 3 REST APIs (35 operations), using pre-seeded mutation faults as ground truth.</li>
-        <li>Key finding: EvoMaster achieved the highest fault-detection recall (0.135), ahead of LLM (0.060) and Manual (0.015); LLM significantly outperformed the manual baseline (McNemar p&asymp;0.031).</li>
-        <li>Source &amp; paper: <a href="https://github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2" target="_blank" rel="noopener">github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2</a></li>
-      </ul>
-    </div>
-
   </section>
 
-  <!-- SKILLS -->
+  <!-- 3. JOB-RELATED SKILLS -->
   <section class="cv-section">
     <div class="cv-section-title"><span class="cv-section-no">3.</span>Job-related Skills</div>
-    <div class="skill-row"><span class="skill-label">Programming</span><span class="skill-value">Java, JavaScript, C#</span></div>
-    <div class="skill-row"><span class="skill-label">Frameworks</span><span class="skill-value">ASP.NET Core Web API, Razor Web, EF Core, React, Node.js</span></div>
-    <div class="skill-row"><span class="skill-label">Databases</span><span class="skill-value">MySQL, PostgreSQL, MongoDB</span></div>
-    <div class="skill-row"><span class="skill-label">Tools &amp; Workflow</span><span class="skill-value">Visual Studio, Visual Studio Code, Git, GitHub, Docker, CI/CD, REST API, Swagger, Agile/Scrum</span></div>
-    <div class="skill-row"><span class="skill-label">Soft Skills</span><span class="skill-value">Team leadership, teamwork, problem-solving, time management, and professional communication</span></div>
-    <div class="skill-row" style="margin-top:.6rem">
-      <span class="skill-label">Languages</span>
-      <span class="skill-value">
-        Vietnamese (Native) &nbsp;&middot;&nbsp; English (Conversational) &nbsp;&middot;&nbsp; Japanese (Basic — 3rd language at FPT)
-      </span>
-    </div>
+    <table class="skill-table">
+      <tr><td>Programming</td><td>C#, Java, JavaScript, Web Technologies (HTML5, CSS3).</td></tr>
+      <tr><td>Frameworks</td><td>ASP.NET Core Web API, Razor Web, EF Core, React, Node.js</td></tr>
+      <tr><td>Databases</td><td>MySQL, SQL Server, PostgreSQL, MongoDB</td></tr>
+      <tr><td>Tools &amp; Workflow</td><td>Visual Studio, Visual Studio Code, Git, GitHub, Docker, CI/CD, REST API, Swagger, Agile/Scrum</td></tr>
+      <tr><td>Soft Skills</td><td>Teamwork, problem-solving, time management, and professional communication</td></tr>
+      <tr><td>Languages</td><td>Vietnamese (Native) &nbsp;&middot;&nbsp; English (Conversational) &nbsp;&middot;&nbsp; Japanese (Basic &ndash; 3rd language at FPT)</td></tr>
+    </table>
   </section>
 
-  <!-- ACCOMPLISHMENTS -->
+  <!-- 4. ACCOMPLISHMENTS -->
   <section class="cv-section">
     <div class="cv-section-title"><span class="cv-section-no">4.</span>Accomplishments</div>
     <ul class="acc-list">
       <li><b>Year-3 Internship:</b> Began interning at a real company in year 3, directly involved in operating a production system.</li>
+      <li><b>Research Team Leadership:</b> Led a 5-member team as Project Lead (PL) in an academic research project on software testing (SWT301). Repo: <a href="https://github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2" target="_blank" rel="noopener">github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2</a></li>
+      <li><b>Certifications:</b> Software Engineering (HKUST), Software Development Lifecycle (University of Minnesota) &mdash; Coursera</li>
     </ul>
   </section>
 
-  <div class="cv-footer">© 2026 Nguyễn Hoàng Huy · <a href="index.html" style="color:inherit">nguyenhoanghuy.io.vn</a></div>
+  <div class="cv-footer">© 2026 Nguyễn Hoàng Huy &nbsp;·&nbsp; <a href="index.html" style="color:inherit">nguyenhoanghuy.io.vn</a></div>
 
 </div>
-
 </body>
 </html>
