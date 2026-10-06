@@ -7,9 +7,11 @@ index-new.html
 portfolio.md
 server.js
 
-# System files
+# System & temp files
 .DS_Store
 Thumbs.db
+~$*
+*.tmp
 
 # Node
 node_modules/
