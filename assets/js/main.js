@@ -130,6 +130,9 @@ var currentLang = 'vi';
 
 var i18n = {
   vi: {
+    'dock.home':        'Trang chủ',
+    'dock.cv':          'Xem CV',
+    'dock.theme':       'Giao diện',
     'nav.about':        'Giới thiệu',
     'nav.projects':     'Dự án',
     'nav.projects.full':'Dự án nổi bật',
@@ -189,6 +192,9 @@ var i18n = {
     'ct.top':           'Về đầu trang ↑'
   },
   en: {
+    'dock.home':        'Home',
+    'dock.cv':          'View CV',
+    'dock.theme':       'Theme',
     'nav.about':        'About',
     'nav.projects':     'Projects',
     'nav.projects.full':'Featured Projects',
