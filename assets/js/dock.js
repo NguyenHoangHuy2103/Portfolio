@@ -12,11 +12,11 @@
     if (!items.length) return;
 
     function getSizes() {
-      var isMobile = window.innerWidth <= 680;
+      var isMobile = window.innerWidth <= 720;
       return {
         baseSize: isMobile ? 32 : 38,
-        maxSize: isMobile ? 48 : 58,
-        distance: isMobile ? 80 : 120
+        maxSize: isMobile ? 40 : 48,
+        distance: isMobile ? 70 : 95
       };
     }
 
@@ -57,7 +57,7 @@
           }
         }
 
-        var step = (state.targetSize - state.currentSize) * 0.25;
+        var step = (state.targetSize - state.currentSize) * 0.28;
         state.currentSize += step;
 
         if (Math.abs(state.targetSize - state.currentSize) > 0.1) {

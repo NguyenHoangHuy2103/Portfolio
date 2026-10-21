@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   z-index: 120;
+  margin: 0 auto;
   pointer-events: auto;
 }
 
@@ -12,21 +13,21 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.32rem 0.55rem;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.84);
+  padding: 0.35rem 0.65rem;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--line);
   border-radius: 9999px;
-  box-shadow: 0 4px 20px -4px rgba(4, 44, 83, 0.1), 0 1px 3px rgba(4, 44, 83, 0.05);
+  box-shadow: 0 4px 20px -4px rgba(4, 44, 83, 0.12), 0 1px 3px rgba(4, 44, 83, 0.06);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 [data-theme="dark"] .apple-dock {
-  background: rgba(10, 25, 45, 0.84);
+  background: rgba(10, 25, 45, 0.88);
   border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.6);
 }
 
 .dock-item {
@@ -72,15 +73,15 @@
   pointer-events: none;
 }
 
-/* Tooltip Label (Opens downward below the top dock) */
+/* Tooltip Label (Drops downward below the top dock) */
 .dock-label {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 9px);
   bottom: auto;
   left: 50%;
   transform: translateX(-50%) translateY(-4px);
   padding: 4px 9px;
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(15, 23, 42, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #FFFFFF;
@@ -95,11 +96,11 @@
   transition: opacity 0.18s ease, transform 0.18s cubic-bezier(.2, .8, .2, 1);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  z-index: 200;
+  z-index: 250;
 }
 
 [data-theme="dark"] .dock-label {
-  background: rgba(30, 41, 59, 0.95);
+  background: rgba(30, 41, 59, 0.96);
   border-color: rgba(255, 255, 255, 0.18);
 }
 
@@ -128,7 +129,7 @@
   width: 1px;
   height: 24px;
   background: var(--line);
-  margin: 0 0.1rem;
+  margin: 0 0.15rem;
   align-self: center;
   flex-shrink: 0;
 }
@@ -137,22 +138,42 @@
   background: rgba(255, 255, 255, 0.14);
 }
 
-/* Nav wrapper padding adjustments */
-nav .wrap {
-  padding-top: 0.65rem;
-  padding-bottom: 0.65rem;
+/* Nav header styling and clearance */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background .3s, box-shadow .3s;
 }
+
+nav .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  min-height: 66px;
+  transition: padding .3s, min-height .3s;
+}
+
 nav.scrolled .wrap {
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  min-height: 58px;
 }
 
 /* Mobile responsive */
-@media (max-width: 680px) {
+@media (max-width: 720px) {
+  nav .wrap {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
   .apple-dock {
-    gap: 0.35rem;
+    gap: 0.3rem;
     padding: 0.25rem 0.4rem;
-    height: 42px;
+    height: 44px;
   }
   .dock-item {
     width: 32px;
