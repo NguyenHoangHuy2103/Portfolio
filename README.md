@@ -2,9 +2,9 @@
 
 **Backend / Full-stack Developer** · TP. Hồ Chí Minh
 
-Sinh viên Software Engineering năm 3 tại FPT University HCMC. Đang thực tập (remote) tại Xuân Tín Logistics — vận hành và phát triển hệ thống production thật.
+Sinh viên Software Engineering năm 3 tại FPT University HCMC. Đang thực tập (remote) tại Xuân Tín Logistics - vận hành và phát triển hệ thống production thật.
 
-Không chờ đủ giỏi mới làm. Biết mình còn thiếu nhiều — nên không bao giờ ngừng.
+Không chờ đủ giỏi mới làm. Biết mình còn thiếu nhiều - nên không bao giờ ngừng.
 
 ---
 
@@ -23,16 +23,16 @@ Không chờ đủ giỏi mới làm. Biết mình còn thiếu nhiều — nên
 ## Dự án nổi bật
 
 ### Xuân Tín Delivery System `Production`
-Hệ thống quản lý giao hàng nội bộ — Razor Web (C#) · JavaScript · Docker · MySQL  
+Hệ thống quản lý giao hàng nội bộ - Razor Web (C#) · JavaScript · Docker · MySQL  
 Phụ trách toàn bộ từ thiết kế, phát triển đến vận hành server và quản lý domain.  
 🔗 [deliverysystem.cloud](https://deliverysystem.cloud)
 
 ### LLM vs Manual vs EvoMaster `Research`
-Nghiên cứu thực nghiệm so sánh 3 phương pháp sinh test REST API — Java · Python · JavaScript  
+Nghiên cứu thực nghiệm so sánh 3 phương pháp sinh test REST API - Java · Python · JavaScript  
 Project Lead, nhóm 5 thành viên, môn SWT301 FPT University.  
 🔗 [GitHub](https://github.com/huycoder2103/RT-SWT301-SE1916-G2)
 
-### Xuân Tín Logistics — Landing Page `Web`
+### Xuân Tín Logistics - Landing Page `Web`
 Website giới thiệu công ty, deploy production với custom domain.  
 🔗 [vantaixuantin.com](https://vantaixuantin.com)
 

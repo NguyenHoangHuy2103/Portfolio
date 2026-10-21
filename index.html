@@ -10,7 +10,7 @@
 
 <!-- Open Graph -->
 <meta property="og:type"        content="website" />
-<meta property="og:title"       content="Nguyễn Hoàng Huy — Backend / Full-stack Developer" />
+<meta property="og:title"       content="Nguyễn Hoàng Huy - Backend / Full-stack Developer" />
 <meta property="og:description" content="Sinh viên Software Engineering FPT University, đang thực tập tại Amazing Tech." />
 <meta property="og:url"         content="https://YOUR_DOMAIN_HERE" />
 <meta property="og:image"       content="YOUR_OG_IMAGE.png" />
@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css?v=2" />
+<link rel="stylesheet" href="assets/css/u205-ripple.css" />
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -30,7 +31,7 @@
 
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="#hero">NHH<span>.</span></a>
+    <a class="logo" href="#hero" id="logo-ripple" aria-label="NHH.">NHH<span>.</span></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#about"           data-section="about"           data-i18n="nav.about">Giới thiệu</a></li>
       <li><a href="#projects"        data-section="projects"        data-i18n="nav.projects">Dự án</a></li>
@@ -62,16 +63,16 @@
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1 data-reveal>Nguyễn Hoàng Huy<span class="dot">.</span></h1>
-        <p class="eyebrow" data-reveal style="--d:.05s" data-i18n="hero.eyebrow">Portfolio — TP. Hồ Chí Minh — 2026</p>
-        <p class="status" data-reveal style="--d:.1s"><i></i><span data-i18n="hero.status">Open to work — Đang thực tập @ Amazing Tech</span></p>
+        <h1 data-reveal id="hero-name-ripple" aria-label="Nguyễn Hoàng Huy.">Nguyễn Hoàng Huy<span class="dot">.</span></h1>
+        <p class="eyebrow" data-reveal style="--d:.05s" data-i18n="hero.eyebrow">Portfolio - TP. Hồ Chí Minh - 2026</p>
+        <p class="status" data-reveal style="--d:.1s"><i></i><span data-i18n="hero.status">Open to work - Đang thực tập @ Amazing Tech</span></p>
         <p class="tw-line" data-reveal style="--d:.16s">
           <span id="tw"></span><span class="tw-cursor"></span>
         </p>
         <p class="role" data-reveal style="--d:.22s" data-i18n-html="hero.role">Không chờ đủ giỏi mới làm, biết mình còn thiếu nhiều.<br>Nên không được ngưng làm, làm để trở nên đủ giỏi.<br>Thứ duy nhất đáng sợ là đứng yên.</p>
         <div class="hero-facts" data-reveal style="--d:.3s">
           <div class="fact"><b>FPT University HCMC</b><span data-i18n="fact.edu">Software Engineering, 2023–2027</span></div>
-          <div class="fact"><b data-i18n="fact.intern.title">Thực tập 09/2026 — nay · Remote</b><span data-i18n="fact.intern.sub">tại Amazing Tech · Phát triển web &amp; app</span></div>
+          <div class="fact"><b data-i18n="fact.intern.title">Thực tập 09/2026 - nay · Remote</b><span data-i18n="fact.intern.sub">tại Amazing Tech · Phát triển web &amp; app</span></div>
           <div class="fact"><b data-i18n="fact.proj.title">5 dự án nổi bật</b><span data-i18n="fact.proj.sub">Hệ thống production thật</span></div>
         </div>
         <div class="hero-cta" data-reveal style="--d:.38s">
@@ -94,7 +95,7 @@
 <section id="about" class="sec">
   <div class="wrap">
     <div class="sec-head" data-reveal><span class="no">01</span><h2 data-i18n="nav.about">Giới thiệu</h2></div>
-    <p class="lede" data-reveal data-i18n-html="about.lede">Mình là <em>Huy</em> — Sinh viên năm 3 ngành Kỹ thuật Phần mềm, định hướng phát triển theo hướng Fullstack Developer và DevOps. Hiện đang thực tập Remote tại Amazing Tech (09/2026 — nay), trực tiếp đảm nhiệm web ftacode.com và app đặt đơn; trước đó từng xây dựng và vận hành hệ thống logistics production cho Xuân Tín Logistics.</p>
+    <p class="lede" data-reveal data-i18n-html="about.lede">Mình là <em>Huy</em> - Sinh viên năm 3 ngành Kỹ thuật Phần mềm, định hướng phát triển theo hướng Fullstack Developer và DevOps. Hiện đang thực tập Remote tại Amazing Tech (09/2026 - nay), trực tiếp đảm nhiệm web ftacode.com và app đặt đơn; trước đó từng xây dựng và vận hành hệ thống logistics production cho Xuân Tín Logistics.</p>
     <div class="about-grid">
       <div class="card" data-reveal>
         <h3 data-i18n-html="card.edu.title">Học vấn <span>2023 - 2027</span></h3>
@@ -102,7 +103,7 @@
       </div>
       <div class="card" data-reveal style="--d:.08s">
         <h3 data-i18n-html="card.intern.title">Kinh nghiệm thực tập <span>2026</span></h3>
-        <p data-i18n-html="card.intern.body"><b>Amazing Tech</b> (09/2026 — nay · Remote): Phát triển web ftacode.com và app đặt đơn.<br><b>Xuân Tín Logistics</b> (05/2026 — 08/2026 · Remote): Vận hành &amp; phát triển hệ thống giao hàng production.</p>
+        <p data-i18n-html="card.intern.body"><b>Amazing Tech</b> (09/2026 - nay · Remote): Phát triển web ftacode.com và app đặt đơn.<br><b>Xuân Tín Logistics</b> (05/2026 - 08/2026 · Remote): Vận hành &amp; phát triển hệ thống giao hàng production.</p>
       </div>
       <div class="card" data-reveal style="--d:.12s">
         <h3 data-i18n="card.lang.title">Ngôn ngữ</h3>
@@ -165,7 +166,7 @@
 
     <article class="proj" data-reveal style="--d:.14s">
       <div class="proj-top">
-        <h3><span class="no">04</span>Xuân Tín Logistics — Landing Page</h3>
+        <h3><span class="no">04</span>Xuân Tín Logistics - Landing Page</h3>
         <span class="p-tag" data-i18n="tag.web">Web</span>
       </div>
       <p class="tech">HTML · CSS · JavaScript</p>
@@ -274,5 +275,6 @@
 </main>
 
 <script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/u205-ripple.js"></script>
 </body>
 </html>
