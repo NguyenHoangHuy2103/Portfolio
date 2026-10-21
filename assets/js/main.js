@@ -12,17 +12,37 @@
 
   /* ---------- SCROLLSPY ---------- */
   var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
-  var navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  var navLinks = document.querySelectorAll('.nav-pill-item, .nav-links a[data-section]');
   function updateScrollspy() {
     var current = '';
     sections.forEach(function (id) {
       var el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 120) current = id;
+      if (el && el.getBoundingClientRect().top <= 140) current = id;
     });
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+      current = 'contact';
+    }
     navLinks.forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('data-section') === current);
+      var sec = a.getAttribute('data-section') || (a.getAttribute('href') ? a.getAttribute('href').replace('#', '') : '');
+      var isActive = (sec === current);
+      a.classList.toggle('active', isActive);
+      a.setAttribute('aria-current', isActive ? 'page' : 'false');
     });
   }
+
+  document.querySelectorAll('.nav-pill-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var href = item.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          if (history.pushState) history.pushState(null, null, href);
+        }
+      }
+    });
+  });
 
   /* ---------- NAV SCROLL STYLE ---------- */
   var nav = document.getElementById('nav');
@@ -287,3 +307,4 @@ window.addEventListener('load', function () {
 
   setTimeout(tick, 400);
 });
+
