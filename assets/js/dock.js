@@ -5,28 +5,36 @@
   var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function initDock() {
-    var dockWrap = document.querySelector('.apple-dock-wrap');
     var dock = document.querySelector('.apple-dock');
-    if (!dockWrap || !dock) return;
+    if (!dock) return;
 
     var items = Array.from(dock.querySelectorAll('.dock-item'));
     if (!items.length) return;
 
-    var BASE_SIZE = 44;
-    var MAX_SIZE = 70;
-    var DISTANCE = 135;
+    function getSizes() {
+      var isMobile = window.innerWidth <= 680;
+      return {
+        baseSize: isMobile ? 32 : 38,
+        maxSize: isMobile ? 48 : 58,
+        distance: isMobile ? 80 : 120
+      };
+    }
+
+    var sizes = getSizes();
+    window.addEventListener('resize', function () {
+      sizes = getSizes();
+    }, { passive: true });
 
     var isHovered = false;
     var mouseX = Infinity;
     var rafId = null;
 
-    // Track state for spring/lerp interpolation
     var itemStates = items.map(function (el) {
       return {
         el: el,
         icon: el.querySelector('svg'),
-        currentSize: BASE_SIZE,
-        targetSize: BASE_SIZE
+        currentSize: sizes.baseSize,
+        targetSize: sizes.baseSize
       };
     });
 
@@ -35,22 +43,21 @@
 
       itemStates.forEach(function (state) {
         if (!isHovered || mouseX === Infinity || rm) {
-          state.targetSize = BASE_SIZE;
+          state.targetSize = sizes.baseSize;
         } else {
           var rect = state.el.getBoundingClientRect();
           var centerX = rect.left + rect.width / 2;
           var diff = Math.abs(mouseX - centerX);
 
-          if (diff < DISTANCE) {
-            var k = Math.cos((diff / DISTANCE) * (Math.PI / 2));
-            state.targetSize = BASE_SIZE + (MAX_SIZE - BASE_SIZE) * k;
+          if (diff < sizes.distance) {
+            var k = Math.cos((diff / sizes.distance) * (Math.PI / 2));
+            state.targetSize = sizes.baseSize + (sizes.maxSize - sizes.baseSize) * k;
           } else {
-            state.targetSize = BASE_SIZE;
+            state.targetSize = sizes.baseSize;
           }
         }
 
-        // Lerp towards target
-        var step = (state.targetSize - state.currentSize) * 0.24;
+        var step = (state.targetSize - state.currentSize) * 0.25;
         state.currentSize += step;
 
         if (Math.abs(state.targetSize - state.currentSize) > 0.1) {
@@ -64,7 +71,7 @@
         state.el.style.height = s.toFixed(1) + 'px';
 
         if (state.icon) {
-          var iconSize = Math.max(18, s * 0.5);
+          var iconSize = Math.max(16, s * 0.5);
           state.icon.style.width = iconSize.toFixed(1) + 'px';
           state.icon.style.height = iconSize.toFixed(1) + 'px';
         }
@@ -96,7 +103,7 @@
       kick();
     });
 
-    // Handle Clicks: smooth scroll or actions
+    // Handle Clicks
     items.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         var href = btn.getAttribute('href');
@@ -125,7 +132,7 @@
     });
 
     // Scrollspy synchronization for active dot indicator
-    var sections = ['hero', 'about', 'projects', 'skills', 'accomplishments', 'contact'];
+    var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
     function onScrollSpy() {
       var current = '';
       sections.forEach(function (id) {

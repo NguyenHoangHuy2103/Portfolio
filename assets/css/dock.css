@@ -1,36 +1,32 @@
-/* Apple macOS Style Interactive Magnification Dock */
+/* Apple macOS Style Magnification Dock - Top Navbar Integration */
 .apple-dock-wrap {
-  position: fixed;
-  bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 150;
+  position: relative;
   display: flex;
-  align-items: flex-end;
-  padding: 0 0.5rem;
-  max-width: calc(100vw - 1.5rem);
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
   pointer-events: auto;
 }
 
 .apple-dock {
   display: flex;
-  align-items: flex-end;
-  gap: 0.6rem;
-  padding: 0.45rem 0.65rem;
-  height: 58px;
-  background: rgba(255, 255, 255, 0.78);
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.55rem;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.84);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(223, 231, 240, 0.85);
-  border-radius: 1.35rem;
-  box-shadow: 0 20px 45px -10px rgba(4, 44, 83, 0.2), 0 2px 10px rgba(4, 44, 83, 0.08);
-  transition: height 0.25s cubic-bezier(.2, .8, .2, 1), background 0.3s, border-color 0.3s;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px -4px rgba(4, 44, 83, 0.1), 0 1px 3px rgba(4, 44, 83, 0.05);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 [data-theme="dark"] .apple-dock {
-  background: rgba(10, 25, 45, 0.82);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7), 0 2px 12px rgba(0, 0, 0, 0.4);
+  background: rgba(10, 25, 45, 0.84);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.55);
 }
 
 .dock-item {
@@ -38,17 +34,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(240, 245, 252, 0.9);
+  background: rgba(240, 245, 252, 0.85);
   color: var(--navy);
   text-decoration: none;
   cursor: pointer;
   outline: none;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px -2px rgba(4, 44, 83, 0.12);
-  transform-origin: 50% 100%;
+  transform-origin: 50% 50%;
   will-change: width, height, transform;
   -webkit-tap-highlight-color: transparent;
   transition: background 0.2s, color 0.2s;
@@ -62,7 +57,6 @@
 [data-theme="dark"] .dock-item {
   background: rgba(255, 255, 255, 0.09);
   color: #EDF3FA;
-  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .dock-item:hover {
@@ -71,21 +65,22 @@
 }
 
 .dock-item svg {
-  width: 22px;
-  height: 22px;
+  width: 19px;
+  height: 19px;
   flex-shrink: 0;
   transition: width 0.1s ease, height 0.1s ease;
   pointer-events: none;
 }
 
-/* Tooltip Label */
+/* Tooltip Label (Opens downward below the top dock) */
 .dock-label {
   position: absolute;
-  top: -34px;
+  top: calc(100% + 8px);
+  bottom: auto;
   left: 50%;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%) translateY(-4px);
   padding: 4px 9px;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #FFFFFF;
@@ -98,9 +93,9 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.18s ease, transform 0.18s cubic-bezier(.2, .8, .2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 200;
 }
 
 [data-theme="dark"] .dock-label {
@@ -118,7 +113,7 @@
 .dock-item.active::after {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
@@ -131,15 +126,45 @@
 /* Dock Divider */
 .dock-divider {
   width: 1px;
-  height: 32px;
+  height: 24px;
   background: var(--line);
-  margin: 0 0.15rem;
+  margin: 0 0.1rem;
   align-self: center;
   flex-shrink: 0;
 }
 
 [data-theme="dark"] .dock-divider {
   background: rgba(255, 255, 255, 0.14);
+}
+
+/* Nav wrapper padding adjustments */
+nav .wrap {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+nav.scrolled .wrap {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 680px) {
+  .apple-dock {
+    gap: 0.35rem;
+    padding: 0.25rem 0.4rem;
+    height: 42px;
+  }
+  .dock-item {
+    width: 32px;
+    height: 32px;
+  }
+  .dock-item svg {
+    width: 16px;
+    height: 16px;
+  }
+  .dock-divider {
+    height: 18px;
+  }
 }
 
 /* Reduced Motion Override */
