@@ -119,12 +119,20 @@
           return;
         }
 
-        // Anchor navigation
+        // Anchor navigation (offset ~70px further down so section content is fully visible)
         if (href && href.startsWith('#')) {
           var target = document.querySelector(href);
           if (target) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
+            if (href === '#hero') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              var targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+              window.scrollTo({
+                top: Math.max(0, targetTop - 14),
+                behavior: 'smooth'
+              });
+            }
             if (history.pushState) history.pushState(null, null, href);
           }
         }

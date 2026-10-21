@@ -23,7 +23,8 @@ body{
   overflow-x:hidden;
 }
 ::selection{background:var(--blue);color:#fff}
-section{scroll-margin-top:84px}
+section{scroll-margin-top:14px}
+#hero{scroll-margin-top:0}
 .wrap{max-width:1280px;margin:0 auto;padding:0 4vw}
 
 /* ---------- PROGRESS BAR ---------- */
