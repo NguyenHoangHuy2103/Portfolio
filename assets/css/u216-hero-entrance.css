@@ -53,20 +53,27 @@
   display: block;
 }
 
+/* Generous top & bottom space prevents letter clipping with diacritics */
 .u216-w {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding: 0 .04em;
+  padding: 44px .04em 24px;
+  margin: -44px 0 -24px;
 }
 
 .u216-w > .u205-word,
 .u216-w > span {
   display: inline-block;
-  transform: translateY(110%);
+  transform: translateY(115%);
   transition: transform .8s var(--u216-ease);
   transition-delay: calc(var(--d, 300) * 1ms);
   will-change: transform;
+}
+
+/* Once hero entrance settles, release overflow completely so rippling letters and shadows are 100% visible */
+.u216.u216-settled .u216-w {
+  overflow: visible !important;
 }
 
 /* --- Avatar Visual Card 3D Entrance --- */
@@ -112,6 +119,7 @@
   .u216 [data-s],
   .u216 .avatar-wrap[data-s],
   .u216-sc[data-s],
+  .u216-w,
   .u216-w > .u205-word,
   .u216-w > span {
     transition: none !important;
@@ -119,5 +127,6 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+    overflow: visible !important;
   }
 }

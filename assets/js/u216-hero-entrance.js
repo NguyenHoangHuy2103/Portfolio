@@ -14,6 +14,7 @@
       if (rm) {
         if (nav) nav.classList.add('is-in');
         hero.classList.add('is-in');
+        hero.classList.add('u216-settled');
         return;
       }
 
@@ -24,6 +25,7 @@
       }
       hero.classList.add('is-snap');
       hero.classList.remove('is-in');
+      hero.classList.remove('u216-settled');
 
       // Force layout reflow
       void hero.offsetWidth;
@@ -35,6 +37,11 @@
       requestAnimationFrame(function () {
         if (nav) nav.classList.add('is-in');
         hero.classList.add('is-in');
+
+        // Once word entrance completes, allow full unconstrained letter bouncing
+        setTimeout(function () {
+          hero.classList.add('u216-settled');
+        }, 950);
       });
     }
 
@@ -46,7 +53,6 @@
       play();
     } else {
       window.addEventListener('load', play, { once: true });
-      // Fallback in case load takes time
       setTimeout(play, 150);
     }
   }

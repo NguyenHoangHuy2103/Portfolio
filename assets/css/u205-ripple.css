@@ -34,15 +34,18 @@
   user-select: none;
   -webkit-user-select: none;
   vertical-align: baseline;
-  overflow: visible;
-  padding-top: 12px;
-  margin-top: -12px;
+  overflow: visible !important;
+  padding-top: 36px;
+  margin-top: -36px;
+  padding-bottom: 20px;
+  margin-bottom: -10px;
 }
 
 .u205-word {
   display: inline-flex;
   align-items: baseline;
   white-space: nowrap;
+  overflow: visible !important;
 }
 
 .u205-space {
@@ -85,16 +88,26 @@
 }
 
 /* Logo specific adjustments */
+.logo.u205-wd {
+  padding-top: 10px;
+  margin-top: -10px;
+  padding-bottom: 6px;
+  margin-bottom: -6px;
+}
+
 .logo.u205-wd .u205-l::after {
   bottom: -2px;
   height: 2.5px;
   filter: blur(1.2px);
 }
 
-/* Hero specific adjustments */
+/* Hero specific adjustments - high ceiling prevents any diacritic / ripple clipping */
 h1.u205-wd {
-  padding-bottom: 6px;
-  margin-bottom: -6px;
+  padding-top: 44px;
+  margin-top: -30px;
+  padding-bottom: 24px;
+  margin-bottom: 0.8rem;
+  overflow: visible !important;
 }
 
 h1.u205-wd .u205-l::after {
