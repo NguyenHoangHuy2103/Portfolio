@@ -23,13 +23,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css?v=2" />
 <link rel="stylesheet" href="assets/css/u205-ripple.css" />
-<noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="stylesheet" href="assets/css/u216-hero-entrance.css" />
+<noscript><style>[data-reveal],.u216-nav[data-s],.u216 [data-s]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
 <body>
 
 <div id="progress"></div>
 
-<nav id="nav">
+<nav id="nav" class="u216-nav" data-s style="--d:0">
   <div class="wrap">
     <a class="logo" href="#hero" id="logo-ripple" aria-label="NHH.">NHH<span>.</span></a>
     <ul class="nav-links" id="nav-links">
@@ -59,29 +60,29 @@
 
 <main>
 
-<section id="hero">
+<section id="hero" class="u216">
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1 data-reveal id="hero-name-ripple" aria-label="Nguyễn Hoàng Huy.">Nguyễn Hoàng Huy<span class="dot">.</span></h1>
-        <p class="eyebrow" data-reveal style="--d:.05s" data-i18n="hero.eyebrow">Portfolio - TP. Hồ Chí Minh - 2026</p>
-        <p class="status" data-reveal style="--d:.1s"><i></i><span data-i18n="hero.status">Open to work - Đang thực tập @ Amazing Tech</span></p>
-        <p class="tw-line" data-reveal style="--d:.16s">
+        <h1 id="hero-name-ripple" aria-label="Nguyễn Hoàng Huy.">Nguyễn Hoàng Huy<span class="dot">.</span></h1>
+        <p class="eyebrow" data-s style="--d:440" data-i18n="hero.eyebrow">Portfolio - TP. Hồ Chí Minh - 2026</p>
+        <p class="status" data-s style="--d:520"><i></i><span data-i18n="hero.status">Open to work - Đang thực tập @ Amazing Tech</span></p>
+        <p class="tw-line" data-s style="--d:600">
           <span id="tw"></span><span class="tw-cursor"></span>
         </p>
-        <p class="role" data-reveal style="--d:.22s" data-i18n-html="hero.role">Không chờ đủ giỏi mới làm, biết mình còn thiếu nhiều.<br>Nên không được ngưng làm, làm để trở nên đủ giỏi.<br>Thứ duy nhất đáng sợ là đứng yên.</p>
-        <div class="hero-facts" data-reveal style="--d:.3s">
+        <p class="role" data-s style="--d:680" data-i18n-html="hero.role">Không chờ đủ giỏi mới làm, biết mình còn thiếu nhiều.<br>Nên không được ngưng làm, làm để trở nên đủ giỏi.<br>Thứ duy nhất đáng sợ là đứng yên.</p>
+        <div class="hero-facts" data-s style="--d:760">
           <div class="fact"><b>FPT University HCMC</b><span data-i18n="fact.edu">Software Engineering, 2023–2027</span></div>
           <div class="fact"><b data-i18n="fact.intern.title">Thực tập 09/2026 - nay · Remote</b><span data-i18n="fact.intern.sub">tại Amazing Tech · Phát triển web &amp; app</span></div>
           <div class="fact"><b data-i18n="fact.proj.title">5 dự án nổi bật</b><span data-i18n="fact.proj.sub">Hệ thống production thật</span></div>
         </div>
-        <div class="hero-cta" data-reveal style="--d:.38s">
+        <div class="hero-cta" data-s style="--d:840">
           <a class="btn btn-solid" href="#projects" data-i18n="cta.projects">Xem dự án</a>
           <a class="btn btn-ghost" href="#contact"  data-i18n="cta.contact">Liên hệ</a>
         </div>
       </div>
 
-      <div class="avatar-wrap" data-reveal style="--d:.2s">
+      <div class="avatar-wrap u216-sc" data-s style="--d:880">
         <img src="YOUR_PHOTO.jpg" alt="Nguyễn Hoàng Huy" id="avatar-img" onerror="this.style.display='none'" />
         <div class="avatar-placeholder" id="avatar-ph">
           <div class="initials">NHH</div>
@@ -95,11 +96,11 @@
 <section id="about" class="sec">
   <div class="wrap">
     <div class="sec-head" data-reveal><span class="no">01</span><h2 data-i18n="nav.about">Giới thiệu</h2></div>
-    <p class="lede" data-reveal data-i18n-html="about.lede">Mình là <em>Huy</em> - Sinh viên năm 3 ngành Kỹ thuật Phần mềm, định hướng phát triển theo hướng Fullstack Developer và DevOps. Hiện đang thực tập Remote tại Amazing Tech (09/2026 - nay), trực tiếp đảm nhiệm web ftacode.com và app đặt đơn; trước đó từng xây dựng và vận hành hệ thống logistics production cho Xuân Tín Logistics.</p>
+    <p class="lede" data-reveal data-i18n-html="about.lede">Mình là <em>Huy</em> - Sinh viên năm 4 ngành Kỹ thuật Phần mềm, định hướng phát triển theo hướng Fullstack Developer và DevOps. Hiện đang thực tập Remote tại Amazing Tech (09/2026 - nay), trực tiếp đảm nhiệm web ftacode.com và app đặt đơn; trước đó từng xây dựng và vận hành hệ thống logistics production cho Xuân Tín Logistics.</p>
     <div class="about-grid">
       <div class="card" data-reveal>
         <h3 data-i18n-html="card.edu.title">Học vấn <span>2023 - 2027</span></h3>
-        <p data-i18n-html="card.edu.body"><b>FPT University HCMC</b> - chuyên ngành Software Engineering. Học tiếng Nhật như ngôn ngữ thứ 3 trong chương trình.</p>
+        <p data-i18n-html="card.edu.body"><b>FPT University HCMC</b> - chuyên ngành Software Engineering.</p>
       </div>
       <div class="card" data-reveal style="--d:.08s">
         <h3 data-i18n-html="card.intern.title">Kinh nghiệm thực tập <span>2026</span></h3>
@@ -276,5 +277,6 @@
 
 <script src="assets/js/main.js?v=2"></script>
 <script src="assets/js/u205-ripple.js"></script>
+<script src="assets/js/u216-hero-entrance.js"></script>
 </body>
 </html>

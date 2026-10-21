@@ -51,7 +51,16 @@
         L.push({ el: s, x: 0, y: 0, v: 0 });
       });
 
-      el.appendChild(wSpan);
+      if (opts.staggerWords) {
+        var box = document.createElement('span');
+        box.className = 'u216-w';
+        var wordDelay = (opts.staggerStart || 320) + (wIdx * (opts.staggerStep || 80));
+        box.style.setProperty('--d', wordDelay);
+        box.appendChild(wSpan);
+        el.appendChild(box);
+      } else {
+        el.appendChild(wSpan);
+      }
     });
 
     var px = null;
@@ -191,14 +200,17 @@
       });
     }
 
-    // 2. Hero Name Nguyễn Hoàng Huy.
+    // 2. Hero Name Nguyễn Hoàng Huy. with Lucian #216 Staggered word reveal
     var heroNameEl = document.getElementById('hero-name-ripple');
     if (heroNameEl) {
       initRipple(heroNameEl, {
         text: 'Nguyễn Hoàng Huy.',
         amp: 24,
         sig: 40,
-        initialWaveDelay: 1200
+        initialWaveDelay: 1400,
+        staggerWords: true,
+        staggerStart: 320,
+        staggerStep: 80
       });
     }
   }
