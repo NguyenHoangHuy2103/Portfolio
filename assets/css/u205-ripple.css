@@ -41,6 +41,33 @@
   margin-bottom: -10px;
 }
 
+/* Reset for navbar logo so it is perfectly centered vertically */
+#logo-ripple.u205-wd,
+.nav-logo.u205-wd {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  height: 38px !important;
+  line-height: 1 !important;
+}
+
+#logo-ripple .u205-word,
+.nav-logo .u205-word {
+  align-items: center !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  height: 100% !important;
+}
+
+#logo-ripple .u205-l,
+.nav-logo .u205-l {
+  vertical-align: middle !important;
+  line-height: 1 !important;
+}
+
 .u205-word {
   display: inline-flex;
   align-items: baseline;

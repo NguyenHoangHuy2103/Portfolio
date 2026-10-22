@@ -50,25 +50,44 @@
   box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.6);
 }
 
-/* Left: Logo */
-.nav-logo {
+/* Left: Logo (Vertically centered) */
+.nav-logo,
+.nav-logo.u205-wd,
+#logo-ripple.u205-wd {
   min-width: 110px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px 0 8px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 12px 0 10px !important;
+  margin: 0 !important;
   font-family: var(--disp);
   font-weight: 700;
   font-size: 1.05rem;
+  line-height: 1 !important;
   color: var(--navy);
   text-decoration: none;
   border-radius: 9999px;
-  height: 38px;
+  height: 38px !important;
+  vertical-align: middle !important;
   flex-shrink: 0;
   transition: color 0.2s, background 0.2s, transform 0.15s;
 }
 
 .nav-logo span {
   color: var(--blue);
+}
+
+.nav-logo .u205-word {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  height: 100% !important;
+}
+
+.nav-logo .u205-l {
+  display: inline-block !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
 }
 
 .nav-logo:hover {
@@ -145,16 +164,6 @@
   transition: stroke 0.2s ease, transform 0.2s ease;
 }
 
-.nav-item:hover:not(.active) {
-  background: rgba(225, 236, 249, 0.7);
-  color: var(--navy);
-}
-
-[data-theme="dark"] .nav-item:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.08);
-  color: #EDF3FA;
-}
-
 .nav-item:active {
   transform: scale(0.95);
 }
@@ -172,12 +181,12 @@
   letter-spacing: -0.01em;
   white-space: nowrap;
   pointer-events: none;
-  transition: max-width 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
-              opacity 0.22s ease,
-              margin-left 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: max-width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.2s ease,
+              margin-left 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* ACTIVE STATE (When tab is selected) */
+/* 1. ACTIVE STATE (Default when user is viewing section and not hovering another tab) */
 .nav-item.active {
   background: rgba(37, 99, 235, 0.12);
   color: var(--blue);
@@ -201,6 +210,49 @@
 
 [data-theme="dark"] .nav-item.active svg {
   stroke: #60A5FA;
+}
+
+/* 2. HOVER STATE: Di chuột vào icon là dãn ra luôn */
+.nav-item:hover {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--blue);
+  padding: 0 14px 0 11px;
+}
+
+[data-theme="dark"] .nav-item:hover {
+  background: rgba(91, 163, 232, 0.18);
+  color: #60A5FA;
+}
+
+.nav-item:hover .nav-item-text {
+  max-width: 140px;
+  opacity: 1;
+  margin-left: 7px;
+}
+
+.nav-item:hover svg {
+  stroke: var(--blue);
+}
+
+[data-theme="dark"] .nav-item:hover svg {
+  stroke: #60A5FA;
+}
+
+/* 3. When hovering .nav-items, collapse any active item that is NOT currently hovered */
+.nav-items:hover .nav-item.active:not(:hover) {
+  background: transparent;
+  color: var(--muted);
+  padding: 0 10px;
+}
+
+.nav-items:hover .nav-item.active:not(:hover) svg {
+  stroke: currentColor;
+}
+
+.nav-items:hover .nav-item.active:not(:hover) .nav-item-text {
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
 }
 
 /* Right: Action Buttons Group (CV, Theme, EN) */
