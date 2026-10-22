@@ -1,6 +1,7 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { useTypewriter } from '@/hooks/useTypewriter';
+import { RippleText } from '@/components/ui/RippleText';
 
 export function Hero() {
   const { lang } = useLanguage();
@@ -22,9 +23,15 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left: Content */}
           <div className="lg:col-span-8 flex flex-col items-start">
-            {/* Name */}
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight text-navy dark:text-white leading-[1.15]">
-              Nguyễn Hoàng Huy<span className="text-blue">.</span>
+            {/* Name with Lucian #205 Ripple Effect */}
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
+              <RippleText
+                text="Nguyễn Hoàng Huy."
+                amp={28}
+                sig={38}
+                initialWaveDelay={600}
+                dotAccent
+              />
             </h1>
 
             {/* Eyebrow */}

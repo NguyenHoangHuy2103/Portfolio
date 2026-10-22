@@ -14,6 +14,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { cn } from '@/lib/utils';
+import { RippleText } from '@/components/ui/RippleText';
 
 interface NavbarProps {
   activeSection: string;
@@ -67,19 +68,25 @@ export function Navbar({ activeSection }: NavbarProps) {
         role="navigation"
         aria-label="Main Navigation"
       >
-        {/* Left: Logo NHH. */}
+        {/* Left: Logo NHH. with Lucian #205 Ripple Effect */}
         <div className="min-w-fit md:min-w-[110px] flex items-center">
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, '#hero')}
             className={cn(
               'inline-flex items-center h-[38px] px-2.5 rounded-full',
-              'font-display font-bold text-base md:text-[1.05rem] text-navy dark:text-white',
-              'hover:text-blue hover:bg-blue/10 active:scale-95 transition-all'
+              'font-display font-bold text-base md:text-[1.05rem]',
+              'hover:bg-blue/10 active:scale-95 transition-all'
             )}
             aria-label="NHH - Về đầu trang"
           >
-            NHH<span className="text-blue">.</span>
+            <RippleText
+              text="NHH."
+              amp={12}
+              sig={20}
+              initialWaveDelay={800}
+              dotAccent
+            />
           </a>
         </div>
 

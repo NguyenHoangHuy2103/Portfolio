@@ -54,3 +54,45 @@
     scrollbar-width: none;
   }
 }
+
+/* Lucian UX/UI Prompt #205 · Rippling letter logo (Text Motion) */
+.u205-l {
+  transform: translateY(var(--y, 0px)) scaleY(var(--sy, 1));
+  transform-origin: 50% 100%;
+}
+
+.u205-l:not([data-dot="true"]) {
+  color: color-mix(in oklab, var(--blue) calc(var(--t, 0) * 100%), var(--navy));
+}
+
+[data-theme="dark"] .u205-l:not([data-dot="true"]) {
+  color: color-mix(in oklab, #7DB4FF calc(var(--t, 0) * 100%), #FFFFFF);
+}
+
+.u205-l::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(4, 44, 83, 0.35);
+  opacity: calc(0.35 - var(--t, 0) * 0.28);
+  transform: translateY(calc(var(--y, 0px) * -1)) scaleX(calc(1 - var(--t, 0) * 0.5));
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .u205-l::after {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u205-l {
+    transform: none !important;
+  }
+  .u205-l::after {
+    display: none !important;
+  }
+}
