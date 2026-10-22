@@ -1,13 +1,38 @@
+/* Lucian UX/UI Prompt #216 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#216 */
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { RippleText } from '@/components/ui/RippleText';
+import { RotateCcw } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export function Hero() {
   const { lang } = useLanguage();
   const t = content[lang].hero;
 
   const typewriterText = useTypewriter(['Backend Developer', 'Frontend Developer', 'DevOps']);
+
+  const [isIn, setIsIn] = useState(false);
+  const [isSnap, setIsSnap] = useState(false);
+
+  const play = useCallback(() => {
+    setIsSnap(true);
+    setIsIn(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsSnap(false);
+        setIsIn(true);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsIn(true);
+    }, 60);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
@@ -17,30 +42,50 @@ export function Hero() {
     }
   };
 
+  const nameWords = ['Nguyễn', 'Hoàng', 'Huy.'];
+
   return (
-    <section id="hero" className="pt-28 md:pt-36 pb-16 md:pb-24">
+    <section
+      id="hero"
+      className={cn(
+        'u216 relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden',
+        isIn && 'is-in',
+        isSnap && 'is-snap'
+      )}
+    >
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+        {/* Replay entrance control button */}
+        <div className="flex justify-end mb-4">
+          <button
+            type="button"
+            onClick={play}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-semibold border border-line-light dark:border-line-dark bg-white/70 dark:bg-surface-dark/70 text-muted dark:text-muted-dark hover:text-navy dark:hover:text-white hover:border-blue active:scale-95 transition-all shadow-sm"
+            title="Xem lại hiệu ứng xuất hiện"
+            aria-label="Replay entrance animation"
+          >
+            <RotateCcw size={12} />
+            <span>Replay</span>
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left: Content */}
           <div className="lg:col-span-8 flex flex-col items-start">
-            {/* Name with Lucian #205 Ripple Effect */}
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
-              <RippleText
-                text="Nguyễn Hoàng Huy."
-                amp={28}
-                sig={38}
-                initialWaveDelay={600}
-                dotAccent
-              />
-            </h1>
-
             {/* Eyebrow */}
-            <p className="mt-2.5 font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark">
+            <p
+              data-s
+              style={{ '--d': 180 } as React.CSSProperties}
+              className="font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark"
+            >
               {t.eyebrow}
             </p>
 
             {/* Status Badge */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium">
+            <div
+              data-s
+              style={{ '--d': 260 } as React.CSSProperties}
+              className="mt-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium"
+            >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -48,19 +93,51 @@ export function Hero() {
               <span>{t.status}</span>
             </div>
 
+            {/* Staggered Headline Words sliding up from beneath hidden lines */}
+            <h1 className="mt-4 font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
+              {nameWords.map((word, wIdx) => (
+                <span key={wIdx} className="u216-w mr-2 sm:mr-3 inline-block">
+                  <span
+                    style={{ '--d': 320 + wIdx * 70 } as React.CSSProperties}
+                    className="inline-block"
+                  >
+                    <RippleText
+                      text={word}
+                      amp={26}
+                      sig={36}
+                      initialWaveDelay={wIdx === nameWords.length - 1 ? 750 : -1}
+                      dotAccent
+                    />
+                  </span>
+                </span>
+              ))}
+            </h1>
+
             {/* Typewriter Line */}
-            <div className="mt-4 h-8 flex items-center font-display font-bold text-xl sm:text-2xl text-blue">
+            <div
+              data-s
+              style={{ '--d': 540 } as React.CSSProperties}
+              className="mt-4 h-8 flex items-center font-display font-bold text-xl sm:text-2xl text-blue"
+            >
               <span>{typewriterText}</span>
               <span className="inline-block w-[2px] h-6 ml-1 bg-blue animate-pulse" />
             </div>
 
             {/* Role / Motto */}
-            <p className="mt-4 text-base sm:text-lg text-muted dark:text-muted-dark leading-relaxed max-w-2xl whitespace-pre-line italic">
+            <p
+              data-s
+              style={{ '--d': 620 } as React.CSSProperties}
+              className="mt-4 text-base sm:text-lg text-muted dark:text-muted-dark leading-relaxed max-w-2xl whitespace-pre-line italic"
+            >
               "{t.role}"
             </p>
 
             {/* Facts Grid */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-2xl">
+            <div
+              data-s
+              style={{ '--d': 720 } as React.CSSProperties}
+              className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-2xl"
+            >
               {t.facts.map((fact, idx) => (
                 <div
                   key={idx}
@@ -73,7 +150,11 @@ export function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-3.5">
+            <div
+              data-s
+              style={{ '--d': 820 } as React.CSSProperties}
+              className="mt-8 flex flex-wrap gap-3.5"
+            >
               <button
                 type="button"
                 onClick={() => scrollTo('#projects')}
@@ -91,9 +172,13 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right: Avatar Placeholder / Photo */}
+          {/* Right: Avatar Container with Tilt & Blur Arrival */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative group w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-line-light dark:border-line-dark bg-slate-100 dark:bg-surface-dark shadow-xl flex items-center justify-center p-2">
+            <div
+              data-s
+              style={{ '--d': 900 } as React.CSSProperties}
+              className="u216-sc relative group w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-line-light dark:border-line-dark bg-slate-100 dark:bg-surface-dark shadow-xl flex items-center justify-center p-2"
+            >
               <img
                 src="YOUR_PHOTO.jpg"
                 alt="Nguyễn Hoàng Huy"
