@@ -1,164 +1,105 @@
-/* Apple macOS Style Interactive Magnification Dock Engine */
+/* Floating Capsule Navbar Engine with Expanding Tabs */
 (function () {
   'use strict';
 
-  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function initDock() {
-    var dock = document.querySelector('.apple-dock');
-    if (!dock) return;
-
-    var items = Array.from(dock.querySelectorAll('.dock-item'));
-    if (!items.length) return;
-
-    function getSizes() {
-      var isMobile = window.innerWidth <= 720;
-      return {
-        baseSize: isMobile ? 32 : 38,
-        maxSize: isMobile ? 40 : 48,
-        distance: isMobile ? 70 : 95
-      };
+  // Restore saved theme on load
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
     }
+  } catch (err) {}
 
-    var sizes = getSizes();
-    window.addEventListener('resize', function () {
-      sizes = getSizes();
-    }, { passive: true });
+  function initNav() {
+    var nav = document.getElementById('nav');
+    var navItems = Array.from(document.querySelectorAll('.nav-item'));
+    if (!navItems.length) return;
 
-    var isHovered = false;
-    var mouseX = Infinity;
-    var rafId = null;
-
-    var itemStates = items.map(function (el) {
-      return {
-        el: el,
-        icon: el.querySelector('svg'),
-        currentSize: sizes.baseSize,
-        targetSize: sizes.baseSize
-      };
-    });
-
-    function updatePhysics() {
-      var moving = false;
-
-      itemStates.forEach(function (state) {
-        if (!isHovered || mouseX === Infinity || rm) {
-          state.targetSize = sizes.baseSize;
-        } else {
-          var rect = state.el.getBoundingClientRect();
-          var centerX = rect.left + rect.width / 2;
-          var diff = Math.abs(mouseX - centerX);
-
-          if (diff < sizes.distance) {
-            var k = Math.cos((diff / sizes.distance) * (Math.PI / 2));
-            state.targetSize = sizes.baseSize + (sizes.maxSize - sizes.baseSize) * k;
-          } else {
-            state.targetSize = sizes.baseSize;
-          }
-        }
-
-        var step = (state.targetSize - state.currentSize) * 0.28;
-        state.currentSize += step;
-
-        if (Math.abs(state.targetSize - state.currentSize) > 0.1) {
-          moving = true;
-        } else {
-          state.currentSize = state.targetSize;
-        }
-
-        var s = state.currentSize;
-        state.el.style.width = s.toFixed(1) + 'px';
-        state.el.style.height = s.toFixed(1) + 'px';
-
-        if (state.icon) {
-          var iconSize = Math.max(16, s * 0.5);
-          state.icon.style.width = iconSize.toFixed(1) + 'px';
-          state.icon.style.height = iconSize.toFixed(1) + 'px';
-        }
-      });
-
-      if (moving || isHovered) {
-        rafId = requestAnimationFrame(updatePhysics);
-      } else {
-        rafId = null;
-      }
-    }
-
-    function kick() {
-      if (!rafId && !rm) {
-        rafId = requestAnimationFrame(updatePhysics);
-      }
-    }
-
-    dock.addEventListener('pointermove', function (e) {
-      if (rm) return;
-      isHovered = true;
-      mouseX = e.clientX;
-      kick();
-    });
-
-    dock.addEventListener('pointerleave', function () {
-      isHovered = false;
-      mouseX = Infinity;
-      kick();
-    });
-
-    // Handle Clicks
-    items.forEach(function (btn) {
+    // Handle Nav Item Clicks
+    navItems.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         var href = btn.getAttribute('href');
-
-        // Theme toggle button
-        if (btn.classList.contains('dock-theme-btn')) {
-          e.preventDefault();
-          var html = document.documentElement;
-          var cur = html.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-          var next = cur === 'dark' ? 'light' : 'dark';
-          html.setAttribute('data-theme', next);
-          try { localStorage.setItem('theme', next); } catch (err) {}
-          return;
-        }
-
-        // Anchor navigation (offset ~70px further down so section content is fully visible)
         if (href && href.startsWith('#')) {
           var target = document.querySelector(href);
-          if (target) {
+          if (target || href === '#hero') {
             e.preventDefault();
+
+            // Instant visual feedback: expand clicked tab immediately
+            navItems.forEach(function (el) { el.classList.remove('active'); });
+            btn.classList.add('active');
+
             if (href === '#hero') {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
+              // 70px further scroll offset for full section visibility below navbar
               var targetTop = target.getBoundingClientRect().top + window.pageYOffset;
               window.scrollTo({
                 top: Math.max(0, targetTop - 14),
                 behavior: 'smooth'
               });
             }
+
             if (history.pushState) history.pushState(null, null, href);
           }
         }
       });
     });
 
-    // Scrollspy synchronization for active dot indicator
-    var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
-    function onScrollSpy() {
-      var current = '';
-      sections.forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 140) current = id;
+    // Logo Click -> Smooth scroll to top & activate Home tab
+    var logo = document.getElementById('logo-ripple');
+    if (logo) {
+      logo.addEventListener('click', function (e) {
+        e.preventDefault();
+        navItems.forEach(function (el) { el.classList.remove('active'); });
+        var homeItem = document.querySelector('.nav-item[href="#hero"]');
+        if (homeItem) homeItem.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (history.pushState) history.pushState(null, null, '#hero');
       });
+    }
 
-      if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+    // Theme Toggle Button
+    var themeBtn = document.getElementById('theme-btn');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var html = document.documentElement;
+        var cur = html.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (err) {}
+      });
+    }
+
+    // Scrollspy synchronization for active expanding tab
+    var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
+
+    function onScrollSpy() {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      var current = 'hero';
+
+      if ((window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 60)) {
         current = 'contact';
+      } else if (scrollY > 120) {
+        sections.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 140) {
+            current = id;
+          }
+        });
       }
 
-      items.forEach(function (btn) {
+      navItems.forEach(function (btn) {
         var href = btn.getAttribute('href');
         if (href && href.startsWith('#')) {
           var secId = href.replace('#', '');
           btn.classList.toggle('active', secId === current);
         }
       });
+
+      if (nav) {
+        nav.classList.toggle('scrolled', scrollY > 30);
+      }
     }
 
     window.addEventListener('scroll', onScrollSpy, { passive: true });
@@ -166,8 +107,8 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDock);
+    document.addEventListener('DOMContentLoaded', initNav);
   } else {
-    initDock();
+    initNav();
   }
 })();
