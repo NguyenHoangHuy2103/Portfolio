@@ -17,7 +17,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsIn(true);
-    }, 60);
+    }, 40);
     return () => clearTimeout(timer);
   }, []);
 
@@ -28,8 +28,6 @@ export function Hero() {
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     }
   };
-
-  const nameWords = ['Nguyễn', 'Hoàng', 'Huy.'];
 
   return (
     <section
@@ -42,32 +40,27 @@ export function Hero() {
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left: Content */}
-          <div className="lg:col-span-8 flex flex-col items-start">
-            {/* 1. Name on Top - Staggered entrance without clipping accents */}
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
-              {nameWords.map((word, wIdx) => (
-                <span key={wIdx} className="u216-w mr-2 sm:mr-3 inline-block">
-                  <span
-                    style={{ '--d': 180 + wIdx * 70 } as React.CSSProperties}
-                    className="inline-block"
-                  >
-                    <RippleText
-                      text={word}
-                      amp={26}
-                      sig={36}
-                      initialWaveDelay={wIdx === nameWords.length - 1 ? 750 : -1}
-                      dotAccent
-                    />
-                  </span>
-                </span>
-              ))}
+          <div className="lg:col-span-8 flex flex-col items-start overflow-visible">
+            {/* 1. Name on Top - Always visible, staggered entrance & rippling letter motion */}
+            <h1
+              data-s
+              style={{ '--d': 120 } as React.CSSProperties}
+              className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.25] text-navy dark:text-white pt-3 pb-2 overflow-visible"
+            >
+              <RippleText
+                text="Nguyễn Hoàng Huy."
+                amp={24}
+                sig={38}
+                initialWaveDelay={600}
+                dotAccent
+              />
             </h1>
 
             {/* 2. Eyebrow */}
             <p
               data-s
-              style={{ '--d': 400 } as React.CSSProperties}
-              className="mt-3 font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark"
+              style={{ '--d': 240 } as React.CSSProperties}
+              className="mt-2 font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark"
             >
               {t.eyebrow}
             </p>
@@ -75,7 +68,7 @@ export function Hero() {
             {/* 3. Status Badge */}
             <div
               data-s
-              style={{ '--d': 480 } as React.CSSProperties}
+              style={{ '--d': 320 } as React.CSSProperties}
               className="mt-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium"
             >
               <span className="relative flex h-2 w-2">
@@ -88,7 +81,7 @@ export function Hero() {
             {/* Typewriter Line */}
             <div
               data-s
-              style={{ '--d': 540 } as React.CSSProperties}
+              style={{ '--d': 400 } as React.CSSProperties}
               className="mt-4 h-8 flex items-center font-display font-bold text-xl sm:text-2xl text-blue"
             >
               <span>{typewriterText}</span>
@@ -98,7 +91,7 @@ export function Hero() {
             {/* Role / Motto */}
             <p
               data-s
-              style={{ '--d': 620 } as React.CSSProperties}
+              style={{ '--d': 480 } as React.CSSProperties}
               className="mt-4 text-base sm:text-lg text-muted dark:text-muted-dark leading-relaxed max-w-2xl whitespace-pre-line italic"
             >
               "{t.role}"
@@ -107,7 +100,7 @@ export function Hero() {
             {/* Facts Grid */}
             <div
               data-s
-              style={{ '--d': 720 } as React.CSSProperties}
+              style={{ '--d': 560 } as React.CSSProperties}
               className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-2xl"
             >
               {t.facts.map((fact, idx) => (
@@ -124,7 +117,7 @@ export function Hero() {
             {/* CTAs */}
             <div
               data-s
-              style={{ '--d': 820 } as React.CSSProperties}
+              style={{ '--d': 640 } as React.CSSProperties}
               className="mt-8 flex flex-wrap gap-3.5"
             >
               <button
@@ -148,7 +141,7 @@ export function Hero() {
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
             <div
               data-s
-              style={{ '--d': 900 } as React.CSSProperties}
+              style={{ '--d': 400 } as React.CSSProperties}
               className="u216-sc relative group w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-line-light dark:border-line-dark bg-slate-100 dark:bg-surface-dark shadow-xl flex items-center justify-center p-2"
             >
               <img

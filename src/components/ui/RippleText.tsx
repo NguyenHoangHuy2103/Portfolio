@@ -177,7 +177,7 @@ export function RippleText({
       onPointerLeave={handlePointerLeave}
       onClick={handleClick}
       className={cn(
-        'u205-wd inline-flex flex-wrap items-baseline select-none cursor-pointer',
+        'u205-wd inline-flex flex-wrap items-baseline select-none cursor-pointer overflow-visible',
         className
       )}
       role="img"
@@ -196,7 +196,7 @@ export function RippleText({
                 key={cIdx}
                 data-dot={isDot ? 'true' : 'false'}
                 className={cn(
-                  'u205-l relative inline-block leading-none font-inherit tracking-inherit will-change-transform',
+                  'u205-l relative inline-block leading-none font-inherit tracking-inherit will-change-transform overflow-visible',
                   isDot && dotAccent && 'text-blue',
                   letterClassName
                 )}
