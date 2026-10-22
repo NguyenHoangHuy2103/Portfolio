@@ -11,7 +11,7 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
 
   /* ---------- SCROLLSPY ---------- */
-  var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
+  var sections = ['about', 'projects', 'skills', /* 'accomplishments', */ 'contact'];
   var navLinks = document.querySelectorAll('.nav-pill-item, .nav-links a[data-section]');
   function updateScrollspy() {
     var current = '';

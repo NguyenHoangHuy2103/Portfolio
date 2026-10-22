@@ -72,7 +72,7 @@
     }
 
     // Scrollspy synchronization for active expanding tab
-    var sections = ['about', 'projects', 'skills', 'accomplishments', 'contact'];
+    var sections = ['about', 'projects', 'skills', /* 'accomplishments', */ 'contact'];
 
     function onScrollSpy() {
       var scrollY = window.pageYOffset || document.documentElement.scrollTop;
