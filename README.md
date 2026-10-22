@@ -81,4 +81,4 @@ Portfolio/
 
 - **Email:** jayker03212k5@gmail.com
 - **LinkedIn:** [Huy Nguyễn Hoàng](https://www.linkedin.com/in/huy-nguy%E1%BB%85n-ho%C3%A0ng-0569aa38a/)
-- **GitHub:** [huycoder2103](https://github.com/huycoder2103)
+- **GitHub:** [NguyenHoangHuy2103](https://github.com/NguyenHoangHuy2103)
