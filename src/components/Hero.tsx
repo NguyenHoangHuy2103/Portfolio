@@ -1,10 +1,9 @@
 /* Lucian UX/UI Prompt #216 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#216 */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { RippleText } from '@/components/ui/RippleText';
-import { RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Hero() {
@@ -14,18 +13,6 @@ export function Hero() {
   const typewriterText = useTypewriter(['Backend Developer', 'Frontend Developer', 'DevOps']);
 
   const [isIn, setIsIn] = useState(false);
-  const [isSnap, setIsSnap] = useState(false);
-
-  const play = useCallback(() => {
-    setIsSnap(true);
-    setIsIn(false);
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setIsSnap(false);
-        setIsIn(true);
-      });
-    });
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -49,56 +36,19 @@ export function Hero() {
       id="hero"
       className={cn(
         'u216 relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden',
-        isIn && 'is-in',
-        isSnap && 'is-snap'
+        isIn && 'is-in'
       )}
     >
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
-        {/* Replay entrance control button */}
-        <div className="flex justify-end mb-4">
-          <button
-            type="button"
-            onClick={play}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-semibold border border-line-light dark:border-line-dark bg-white/70 dark:bg-surface-dark/70 text-muted dark:text-muted-dark hover:text-navy dark:hover:text-white hover:border-blue active:scale-95 transition-all shadow-sm"
-            title="Xem lại hiệu ứng xuất hiện"
-            aria-label="Replay entrance animation"
-          >
-            <RotateCcw size={12} />
-            <span>Replay</span>
-          </button>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left: Content */}
           <div className="lg:col-span-8 flex flex-col items-start">
-            {/* Eyebrow */}
-            <p
-              data-s
-              style={{ '--d': 180 } as React.CSSProperties}
-              className="font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark"
-            >
-              {t.eyebrow}
-            </p>
-
-            {/* Status Badge */}
-            <div
-              data-s
-              style={{ '--d': 260 } as React.CSSProperties}
-              className="mt-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>{t.status}</span>
-            </div>
-
-            {/* Staggered Headline Words sliding up from beneath hidden lines */}
-            <h1 className="mt-4 font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
+            {/* 1. Name on Top - Staggered entrance without clipping accents */}
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.15]">
               {nameWords.map((word, wIdx) => (
                 <span key={wIdx} className="u216-w mr-2 sm:mr-3 inline-block">
                   <span
-                    style={{ '--d': 320 + wIdx * 70 } as React.CSSProperties}
+                    style={{ '--d': 180 + wIdx * 70 } as React.CSSProperties}
                     className="inline-block"
                   >
                     <RippleText
@@ -112,6 +62,28 @@ export function Hero() {
                 </span>
               ))}
             </h1>
+
+            {/* 2. Eyebrow */}
+            <p
+              data-s
+              style={{ '--d': 400 } as React.CSSProperties}
+              className="mt-3 font-display font-medium text-xs sm:text-sm tracking-wider uppercase text-muted dark:text-muted-dark"
+            >
+              {t.eyebrow}
+            </p>
+
+            {/* 3. Status Badge */}
+            <div
+              data-s
+              style={{ '--d': 480 } as React.CSSProperties}
+              className="mt-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-medium"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>{t.status}</span>
+            </div>
 
             {/* Typewriter Line */}
             <div
