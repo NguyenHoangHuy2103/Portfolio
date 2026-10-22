@@ -1,7 +1,13 @@
-# Archive - local only, not pushed to GitHub
+# Node & Build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Archive - local only
 archive/
 
-# Leftover files - delete manually
+# Leftover files
 index-v2.html
 index-new.html
 portfolio.md
@@ -12,6 +18,3 @@ server.js
 Thumbs.db
 ~$*
 *.tmp
-
-# Node
-node_modules/

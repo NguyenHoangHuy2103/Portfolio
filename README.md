@@ -1,45 +1,84 @@
-# Nguyễn Hoàng Huy
+# Nguyễn Hoàng Huy - Portfolio
 
-**Backend / Full-stack Developer** · TP. Hồ Chí Minh
-
-Sinh viên Software Engineering năm 3 tại FPT University HCMC. Đang thực tập (remote) tại Xuân Tín Logistics - vận hành và phát triển hệ thống production thật.
-
-Không chờ đủ giỏi mới làm. Biết mình còn thiếu nhiều - nên không bao giờ ngừng.
+> **Fullstack Developer & DevOps** · TP. Hồ Chí Minh  
+> Sinh viên Software Engineering tại FPT University HCMC. Thực tập tại Amazing Tech.  
+> 🌐 Website: [nguyenhoanghuy.io.vn](https://nguyenhoanghuy.io.vn)
 
 ---
 
-## Kỹ năng
+## 🛠️ Công nghệ sử dụng (Tech Stack)
 
-**Ngôn ngữ:** Java · JavaScript · C#
-
-**Framework & Runtime:** React · Node.js · .NET · Razor Pages
-
-**Database:** MySQL · PostgreSQL · MongoDB
-
-**Tools:** Git · Docker · CI/CD · REST API · Agile/Scrum
-
----
-
-## Dự án nổi bật
-
-### Xuân Tín Delivery System `Production`
-Hệ thống quản lý giao hàng nội bộ - Razor Web (C#) · JavaScript · Docker · MySQL  
-Phụ trách toàn bộ từ thiết kế, phát triển đến vận hành server và quản lý domain.  
-🔗 [deliverysystem.cloud](https://deliverysystem.cloud)
-
-### LLM vs Manual vs EvoMaster `Research`
-Nghiên cứu thực nghiệm so sánh 3 phương pháp sinh test REST API - Java · Python · JavaScript  
-Project Lead, nhóm 5 thành viên, môn SWT301 FPT University.  
-🔗 [GitHub](https://github.com/huycoder2103/RT-SWT301-SE1916-G2)
-
-### Xuân Tín Logistics - Landing Page `Web`
-Website giới thiệu công ty, deploy production với custom domain.  
-🔗 [vantaixuantin.com](https://vantaixuantin.com)
+- **Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **CI/CD & Hosting:** GitHub Actions ➔ GitHub Pages
 
 ---
 
-## Liên hệ
+## 🚀 Hướng dẫn phát triển (Development)
 
-jayker03212k5@gmail.com  
-[LinkedIn](https://www.linkedin.com/in/huy-nguy%E1%BB%85n-ho%C3%A0ng-0569aa38a/)  
-[GitHub](https://github.com/huycoder2103)
+### 1. Cài đặt dependencies
+```bash
+npm install
+```
+
+### 2. Chạy môi trường development
+```bash
+npm run dev
+```
+Trình duyệt sẽ mở tại `http://localhost:5173`.
+
+### 3. Build production
+```bash
+npm run build
+```
+Kết quả build được xuất ra thư mục `dist/`.
+
+### 4. Preview bản build
+```bash
+npm run preview
+```
+
+---
+
+## 📁 Cấu trúc thư mục (Project Structure)
+
+```
+Portfolio/
+├── .github/workflows/deploy.yml # GitHub Actions tự động build & deploy
+├── public/                      # Static assets (CNAME, CV docx/pdf, cv.html)
+├── src/
+│   ├── components/              # Các components giao diện
+│   │   ├── Navbar.tsx           # Floating capsule navbar với tab dãn ngang
+│   │   ├── Hero.tsx             # Hero section & Typewriter
+│   │   ├── About.tsx            # Giới thiệu & thẻ thông tin
+│   │   ├── Projects.tsx         # 5 dự án production & research
+│   │   ├── Skills.tsx           # Kỹ năng theo từng nhóm
+│   │   ├── Accomplishments.tsx  # Thành tích (đã comment, bật lại khi cần)
+│   │   ├── Contact.tsx          # Liên hệ & copy email
+│   │   └── ProgressBar.tsx      # Thanh tiến trình cuộn
+│   ├── context/
+│   │   ├── ThemeContext.tsx     # Quản lý giao diện Sáng / Tối (Dark mode)
+│   │   └── LanguageContext.tsx  # Đa ngôn ngữ (VI / EN)
+│   ├── data/
+│   │   └── content.ts           # Dữ liệu nội dung song ngữ VI/EN
+│   ├── hooks/                   # Custom React hooks (Typewriter, ScrollSpy)
+│   ├── lib/utils.ts             # Helper clsx + twMerge
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css                # Tailwind base & CSS variables
+├── index.html                   # HTML template chính cho Vite
+├── vite.config.ts
+├── tailwind.config.js
+└── tsconfig.json
+```
+
+---
+
+## 📬 Liên hệ
+
+- **Email:** jayker03212k5@gmail.com
+- **LinkedIn:** [Huy Nguyễn Hoàng](https://www.linkedin.com/in/huy-nguy%E1%BB%85n-ho%C3%A0ng-0569aa38a/)
+- **GitHub:** [huycoder2103](https://github.com/huycoder2103)

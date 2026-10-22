@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV - Nguyễn Hoàng Huy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2b47;
+  --blue:#2b6cb0;
+  --text:#1a1a1a;
+  --muted:#555;
+  --line:#c0c8d4;
+  --body:'Inter',sans-serif;
+}
+body{
+  font-family:var(--body);
+  background:#e8ecf0;
+  color:var(--text);
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+/* ---- TOP BAR ---- */
+.topbar{
+  background:#1a2b47;padding:.7rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar a{color:#a8c4e0;text-decoration:none;font-size:.82rem;font-weight:600;transition:color .2s}
+.topbar a:hover{color:#fff}
+.btn-print{
+  font-size:.78rem;font-weight:600;background:#2b6cb0;color:#fff;
+  border:none;border-radius:5px;padding:.38em 1em;cursor:pointer;transition:background .2s;
+}
+.btn-print:hover{background:#1e4e8c}
+
+/* ---- SHEET ---- */
+.sheet{
+  max-width:800px;margin:2rem auto 4rem;
+  background:#fff;padding:2.8rem 3.2rem;
+  border-radius:3px;box-shadow:0 2px 18px rgba(0,0,0,.1);
+}
+
+/* ---- HEADER (centered) ---- */
+.cv-header{text-align:center;margin-bottom:1.2rem}
+.cv-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:1.95rem;
+  color:var(--navy);letter-spacing:-.01em;line-height:1.1;
+  margin-bottom:.35rem;
+}
+.cv-title{
+  font-size:.88rem;font-weight:500;color:var(--blue);
+  margin-bottom:.7rem;
+}
+.cv-contacts{
+  font-size:.8rem;color:var(--muted);
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem .1rem;
+}
+.cv-contacts span{display:flex;align-items:center;gap:.45rem}
+.cv-contacts span+span::before{content:'·';color:var(--line)}
+.cv-contacts a{color:var(--blue);text-decoration:none}
+.cv-contacts a:hover{text-decoration:underline}
+
+/* ---- SUMMARY ---- */
+.cv-summary{
+  font-size:.84rem;color:#333;line-height:1.6;
+  border-top:1.5px solid var(--navy);
+  padding-top:.9rem;margin-bottom:1.2rem;
+}
+
+/* ---- SECTION ---- */
+.cv-section{margin-bottom:1.3rem}
+.cv-section-title{
+  font-weight:700;font-size:.76rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy);
+  border-bottom:1.5px solid var(--navy);
+  padding-bottom:.3rem;margin-bottom:.85rem;
+}
+.cv-section-no{margin-right:.3rem}
+
+/* ---- ENTRY ---- */
+.cv-entry{margin-bottom:.95rem}
+.cv-entry-head{
+  display:flex;justify-content:space-between;
+  align-items:baseline;gap:1rem;flex-wrap:wrap;
+}
+.cv-entry-role{font-weight:700;font-size:.88rem;color:var(--navy)}
+.cv-entry-period{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.cv-entry-sub{font-size:.82rem;color:var(--blue);font-weight:600;margin-bottom:.4rem}
+.sub-label{font-weight:700;font-size:.83rem;color:var(--text);margin:.5rem 0 .2rem}
+.cv-entry ul{padding-left:1.25rem;margin-bottom:.2rem}
+.cv-entry li{
+  font-size:.83rem;color:#2a2a2a;
+  margin-bottom:.22rem;line-height:1.5;
+  list-style-type:disc;
+}
+.cv-entry a{color:var(--blue);text-decoration:none}
+.cv-entry a:hover{text-decoration:underline}
+
+/* ---- SKILLS TABLE ---- */
+.skill-table{width:100%;border-collapse:collapse}
+.skill-table tr td{
+  font-size:.83rem;padding:.18rem .4rem .18rem 0;
+  vertical-align:top;
+}
+.skill-table td:first-child{
+  font-weight:700;color:var(--navy);
+  width:148px;white-space:nowrap;
+}
+.skill-table td:last-child{color:#2a2a2a}
+
+/* ---- ACCOMPLISHMENTS ---- */
+.acc-list{list-style:disc;padding-left:1.25rem}
+.acc-list li{font-size:.83rem;color:#2a2a2a;margin-bottom:.35rem;line-height:1.5}
+.acc-list b{color:var(--navy)}
+.acc-list a{color:var(--blue);text-decoration:none}
+.acc-list a:hover{text-decoration:underline}
+
+/* ---- FOOTER ---- */
+.cv-footer{
+  margin-top:1.8rem;padding-top:.9rem;
+  border-top:1px solid var(--line);
+  font-size:.72rem;color:var(--muted);text-align:center;
+}
+
+/* ---- PRINT ---- */
+@media print{
+  body{background:#fff}
+  .topbar,.btn-print{display:none}
+  .sheet{margin:0;padding:1.4cm 1.8cm;box-shadow:none;border-radius:0;max-width:100%}
+  .cv-entry li{page-break-inside:avoid}
+  a{color:inherit!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Back to Portfolio</a>
+  <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <div class="cv-name">Nguyễn Hoàng Huy</div>
+    <div class="cv-title">Backend / Frontend Developer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Software Engineering Student &nbsp;·&nbsp; FPT University</div>
+    <div class="cv-contacts">
+      <span>Ho Chi Minh City, Vietnam</span>
+      <span><a href="tel:+84366424978">+84 366 424 978</a></span>
+      <span><a href="mailto:jayker03212k5@gmail.com">jayker03212k5@gmail.com</a></span>
+      <span><a href="https://github.com/NguyenHoangHuy2103" target="_blank" rel="noopener">GitHub</a></span>
+      <span><a href="https://www.linkedin.com/in/huy-nguyễn-hoàng-0569aa38a/" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="https://nguyenhoanghuy.io.vn" target="_blank" rel="noopener">Portfolio</a></span>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <p class="cv-summary">3rd-year Software Engineering student, oriented toward Fullstack Development and DevOps. Currently interning at Amazing Tech (Sep 2026 &ndash; Present, Remote) directly developing the ftacode.com web platform and ordering app. Proven experience building and operating production systems - covering UI/UX development, backend services, database design, and server administration.</p>
+
+  <!-- 1. EDUCATION -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">1.</span>Education</div>
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">FPT University &ndash; Ho Chi Minh City</span>
+        <span class="cv-entry-period">Sep 2023 &ndash; Present</span>
+      </div>
+      <div class="cv-entry-sub">Bachelor of Software Engineering</div>
+      <ul>
+        <li>Core coursework: Software Development, Database Management, System Architecture.</li>
+        <li>Studying Japanese as a 3rd language within the program.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. WORK EXPERIENCE & PROJECTS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">2.</span>Work Experience &amp; Projects</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Software Engineer Intern (Remote) &ndash; Full-stack Developer</span>
+        <span class="cv-entry-period">Sep 2026 &ndash; Present</span>
+      </div>
+      <div class="cv-entry-sub">Amazing Tech</div>
+
+      <p class="sub-label">Website ftacode.com:</p>
+      <ul>
+        <li>Directly took charge of developing and deploying the official web platform for the ftacode brand (FtaCode Tacos) at <a href="https://ftacode.com" target="_blank" rel="noopener">ftacode.com</a>.</li>
+        <li>Implemented modern responsive UI with <strong>React</strong>, <strong>Tailwind CSS</strong>, and <strong>JavaScript</strong>, focusing on fast loading, user interactions, and visual brand identity.</li>
+      </ul>
+
+      <p class="sub-label">FTAcode Ordering Application:</p>
+      <ul>
+        <li>Directly developed the mobile ordering application for ftacode using <strong>React Native</strong> and <strong>NativeWind</strong>, supporting food menu browsing, item customizations, cart management, and seamless order submission workflows.</li>
+        <li>Integrated with backend RESTful APIs to ensure accurate and responsive real-time order processing.</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Software Engineer Intern (Remote) &ndash; Backend, Frontend &amp; DevOps</span>
+        <span class="cv-entry-period">Apr 2026 &ndash; Aug 2026</span>
+      </div>
+      <div class="cv-entry-sub">Công ty TNHH MTV Vận Tải Xuân Tín Logistics</div>
+
+      <p class="sub-label">Internal Delivery Management System:</p>
+      <ul>
+        <li>Designed the system architecture and database schema from scratch for order intake, shipment tracking, delivery, and invoicing workflows.</li>
+        <li>Built the backend with <strong>Razor Web (C#)</strong> and RESTful endpoints. Used <strong>MySQL</strong> for data storage and <strong>Docker</strong> to containerize the application, ensuring consistent deployment across environments.</li>
+        <li>Provisioned the production server, configured the domain, and owned deployment and ongoing maintenance.</li>
+      </ul>
+
+      <p class="sub-label">Company Website (Landing Page):</p>
+      <ul>
+        <li>Built a multi-page company website (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>), deployed at <a href="https://vantaixuantin.com" target="_blank" rel="noopener">vantaixuantin.com</a>.</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-head">
+        <span class="cv-entry-role">Backend Developer &middot; Coursework Team Project</span>
+        <span class="cv-entry-period">05/2026</span>
+      </div>
+      <div class="cv-entry-sub">AutoWash Pro &ndash; Automated Car Wash Booking System &middot; SWP391 &middot; FPT University</div>
+      <ul>
+        <li>Contributed as backend developer on a team project building an automated car wash appointment scheduling system.</li>
+        <li>Designed and implemented RESTful APIs using <strong>ASP.NET Core Web API</strong> for booking management, service catalog, and scheduling logic.</li>
+        <li>Source: <a href="https://github.com/ThuanNg05/AutoWashPro" target="_blank" rel="noopener">github.com/ThuanNg05/AutoWashPro</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- 3. JOB-RELATED SKILLS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">3.</span>Job-related Skills</div>
+    <table class="skill-table">
+      <tr><td>Programming</td><td>C#, Java, JavaScript, Web Technologies (HTML5, CSS3).</td></tr>
+      <tr><td>Frameworks</td><td>ASP.NET Core Web API, Razor Web, EF Core, React, React Native, NativeWind, Node.js</td></tr>
+      <tr><td>Databases</td><td>MySQL, SQL Server, PostgreSQL, MongoDB</td></tr>
+      <tr><td>Tools &amp; Workflow</td><td>Visual Studio, Visual Studio Code, Git, GitHub, Docker, CI/CD, REST API, Swagger, Agile/Scrum</td></tr>
+      <tr><td>Soft Skills</td><td>Teamwork, problem-solving, time management, and professional communication</td></tr>
+      <tr><td>Languages</td><td>Vietnamese (Native) &nbsp;&middot;&nbsp; English (Conversational) &nbsp;&middot;&nbsp; Japanese (Basic &ndash; 3rd language at FPT)</td></tr>
+    </table>
+  </section>
+
+  <!-- 4. ACCOMPLISHMENTS -->
+  <section class="cv-section">
+    <div class="cv-section-title"><span class="cv-section-no">4.</span>Accomplishments</div>
+    <ul class="acc-list">
+      <li><b>Production Web &amp; App Delivery:</b> Directly built and shipped the ftacode.com web platform and ordering app at Amazing Tech; built end-to-end production delivery systems at Xuan Tin Logistics.</li>
+      <li><b>Research Team Leadership:</b> Led a 5-member team as Project Lead (PL) in an academic research project on software testing (SWT301). Repo: <a href="https://github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2" target="_blank" rel="noopener">github.com/NguyenHoangHuy2103/RT-SWT301-SE1916-G2</a></li>
+      <li><b>Certifications:</b> Software Engineering (HKUST), Software Development Lifecycle (University of Minnesota) - Coursera</li>
+    </ul>
+  </section>
+
+  <div class="cv-footer">© 2026 Nguyễn Hoàng Huy &nbsp;·&nbsp; <a href="index.html" style="color:inherit">nguyenhoanghuy.io.vn</a></div>
+
+</div>
+</body>
+</html>
